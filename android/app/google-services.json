@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502078547435",
+    "project_id": "kampushare0",
+    "storage_bucket": "kampushare0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502078547435:android:bf76c07c058c906b1725ae",
+        "android_client_info": {
+          "package_name": "com.example.kampushare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu_sfgN9ykQvdx-50tJnxlOrCPzXnY6qE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
