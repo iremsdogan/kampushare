@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget{
 
   @override
   State<HomePage> createState() => _HomePageState();
-  
 }
 
 class _HomePageState extends State<HomePage>{
@@ -142,9 +141,14 @@ class _HomePageState extends State<HomePage>{
             Expanded(
               child: TextField(
                 controller: _searchController,
-                onChanged: (value) => setState(() {
-                  _searchQuery = value;
-                }),
+                onChanged: (value){
+                  if(_debounce?.isActive ?? false) _debounce!.cancel();
+                  _debounce = Timer(const Duration(milliseconds: 300), (){
+                    setState(() {
+                      _searchQuery = value;
+                    });
+                  });
+                },
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.search), 
                   prefixIconColor: Colors.grey,
@@ -156,8 +160,14 @@ class _HomePageState extends State<HomePage>{
               ),
             ),
             IconButton(
-              icon: Icon(Icons.filter_list, color: _selectedCategory != null ? Colors.teal : Colors.grey),
+              icon: Icon(Icons.format_list_bulleted_outlined, color: _selectedCategory != null ? Colors.teal : Colors.grey),
               onPressed: () => _showFilterSheet(context, categories),
+            ),
+            IconButton(
+              icon: const Icon(Icons.notifications_none_rounded, color: Colors.grey),
+              onPressed: (){
+                Navigator.pushNamed(context, AppRoutes.notifications, arguments: widget.user);
+              },
             ),
           ],
         ),

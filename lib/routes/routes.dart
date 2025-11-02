@@ -7,6 +7,7 @@ import '../screens/login_page/login_page.dart';
 import '../screens/chat_menu_page/chat_menu_page.dart';
 import '../screens/cart_page/cart_page.dart';
 import '../screens/profile_menu_page/profile_menu_page.dart';
+import '../screens/notifications_page/notifications_page.dart';
 
 class AppRoutes {
   static const String login = '/login';
@@ -16,6 +17,7 @@ class AppRoutes {
   static const String addproduct = '/addproduct';
   static const String cart = '/cart';
   static const String profilemenu = '/profilemenu';
+  static const String notifications = '/notifications';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -34,6 +36,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CartPage(), settings: settings);
       case profilemenu:
         return MaterialPageRoute(builder: (_) => const ProfileMenuPage(), settings: settings);
+      case notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationsPage());
       default:
         return MaterialPageRoute(builder: (_) => const LoginPage());
     }
