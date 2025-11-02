@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../models/products.dart';
+import '../../models/product_model.dart';
 import '../../providers/products_provider.dart';
 import '../chat_page/chat_page.dart';
 
@@ -24,10 +24,22 @@ class ProductDetailPage extends StatelessWidget {
                     bottomRight: Radius.circular(30),
                   ),
                   child: Image.network(
-                    product.image,
+                    product.coverImageUrl,
                     height: 500,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        height: 500,
+                        width: double.infinity,
+                        color: Colors.grey[300],
+                        child: const Icon(
+                          Icons.image_not_supported,
+                          size: 100,
+                          color: Colors.grey,
+                        ),
+                      );
+                    },
                   ),
                 ),
                 Positioned(
@@ -45,7 +57,7 @@ class ProductDetailPage extends StatelessWidget {
                     icon: product.isFavorite
                         ? Icons.favorite
                         : Icons.favorite_border,
-                    onTap: () => provider.toggleFavorite(product.id),
+                    onTap: () => provider.toggleFavorite((product.productId)),
                   ),
                 ),
               ],
@@ -69,7 +81,7 @@ class ProductDetailPage extends StatelessWidget {
                             MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            product.name,
+                            product.title,
                             style: const TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold),
@@ -138,7 +150,7 @@ class ProductDetailPage extends StatelessWidget {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    const Color(0xFFB6F64A),
+                                    Colors.teal,
                                 shape: RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.circular(12),
@@ -158,7 +170,7 @@ class ProductDetailPage extends StatelessWidget {
                               },
                               child: const Text("Satıcıyla Görüş",
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 16)),
                             ),
                           ),

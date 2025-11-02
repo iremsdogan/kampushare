@@ -1,0 +1,855 @@
+{
+  "Users": {
+    "user_001": {
+      "name": "Ahmet Yılmaz",
+      "username": "ahmet.yilmaz",
+      "email": "ahmet.yilmaz@sakarya.edu.tr",
+      "password_hash": "hashed_password_1",
+      "phone_number": "+905940698544",
+      "profile_image": "https://i.pravatar.cc/150?img=2",
+      "university": "Sakarya Üniversitesi",
+      "department": "Elektrik-Elektronik Mühendisliği",
+      "bio_text": "Merhaba, ben Elektrik-Elektronik Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-09-18T15:14:59.462639",
+      "updated_at": "2025-08-19T15:14:59.462639",
+      "favorites": [
+        "prod_014",
+        "prod_002",
+        "prod_003",
+        "prod_008"
+      ]
+    },
+    "user_002": {
+      "name": "Elif Kaya",
+      "username": "elif.kaya",
+      "email": "elif.kaya@subu.edu.tr",
+      "password_hash": "hashed_password_2",
+      "phone_number": "+905364173034",
+      "profile_image": "https://i.pravatar.cc/150?img=3",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "İktisat",
+      "bio_text": "Merhaba, ben İktisat öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-02-28T15:14:59.462639",
+      "updated_at": "2025-09-14T15:14:59.462639",
+      "favorites": [
+        "prod_001",
+        "prod_019",
+        "prod_017",
+        "prod_014",
+        "prod_003"
+      ]
+    },
+    "user_003": {
+      "name": "Mert Demir",
+      "username": "mert.demir",
+      "email": "mert.demir@sakarya.edu.tr",
+      "password_hash": "hashed_password_3",
+      "phone_number": "+905972793857",
+      "profile_image": "https://i.pravatar.cc/150?img=4",
+      "university": "Sakarya Üniversitesi",
+      "department": "İktisat",
+      "bio_text": "Merhaba, ben İktisat öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2024-11-17T15:14:59.462639",
+      "updated_at": "2025-09-16T15:14:59.462639",
+      "favorites": [
+        "prod_005",
+        "prod_011"
+      ]
+    },
+    "user_004": {
+      "name": "Zeynep Şahin",
+      "username": "zeynep.sahin",
+      "email": "zeynep.sahin@sakarya.edu.tr",
+      "password_hash": "hashed_password_4",
+      "phone_number": "+905716645452",
+      "profile_image": "https://i.pravatar.cc/150?img=5",
+      "university": "Sakarya Üniversitesi",
+      "department": "Kimya",
+      "bio_text": "Merhaba, ben Kimya öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-10-01T15:14:59.462639",
+      "updated_at": "2025-10-01T15:14:59.462639",
+      "favorites": [
+        "prod_016",
+        "prod_017",
+        "prod_014",
+        "prod_011",
+        "prod_003"
+      ]
+    },
+    "user_005": {
+      "name": "Caner Öztürk",
+      "username": "caner.oztürk",
+      "email": "caner.oztürk@sakarya.edu.tr",
+      "password_hash": "hashed_password_5",
+      "phone_number": "+905593365478",
+      "profile_image": "https://i.pravatar.cc/150?img=6",
+      "university": "Sakarya Üniversitesi",
+      "department": "Mimarlık",
+      "bio_text": "Merhaba, ben Mimarlık öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2024-10-06T15:14:59.462639",
+      "updated_at": "2025-09-14T15:14:59.462639",
+      "favorites": [
+        "prod_009",
+        "prod_003"
+      ]
+    },
+    "user_006": {
+      "name": "Büşra Aydın",
+      "username": "büsra.aydin",
+      "email": "büsra.aydin@sakarya.edu.tr",
+      "password_hash": "hashed_password_6",
+      "phone_number": "+905398840800",
+      "profile_image": "https://i.pravatar.cc/150?img=7",
+      "university": "Sakarya Üniversitesi",
+      "department": "Matematik",
+      "bio_text": "Merhaba, ben Matematik öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-03-22T15:14:59.462639",
+      "updated_at": "2025-08-24T15:14:59.462639",
+      "favorites": [
+        "prod_009",
+        "prod_005",
+        "prod_007",
+        "prod_006",
+        "prod_011"
+      ]
+    },
+    "user_007": {
+      "name": "Deniz Kılıç",
+      "username": "deniz.kilic",
+      "email": "deniz.kilic@subu.edu.tr",
+      "password_hash": "hashed_password_7",
+      "phone_number": "+905419354230",
+      "profile_image": "https://i.pravatar.cc/150?img=8",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Mimarlık",
+      "bio_text": "Merhaba, ben Mimarlık öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-04-18T15:14:59.462639",
+      "updated_at": "2025-08-24T15:14:59.462639",
+      "favorites": [
+        "prod_010",
+        "prod_012"
+      ]
+    },
+    "user_008": {
+      "name": "Burak Yılmaz",
+      "username": "burak.yilmaz",
+      "email": "burak.yilmaz@sakarya.edu.tr",
+      "password_hash": "hashed_password_8",
+      "phone_number": "+905743173937",
+      "profile_image": "https://i.pravatar.cc/150?img=9",
+      "university": "Sakarya Üniversitesi",
+      "department": "İşletme",
+      "bio_text": "Merhaba, ben İşletme öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-03-19T15:14:59.462639",
+      "updated_at": "2025-08-24T15:14:59.462639",
+      "favorites": [
+        "prod_005",
+        "prod_006"
+      ]
+    },
+    "user_009": {
+      "name": "Aylin Çelik",
+      "username": "aylin.celik",
+      "email": "aylin.celik@sakarya.edu.tr",
+      "password_hash": "hashed_password_9",
+      "phone_number": "+905529799586",
+      "profile_image": "https://i.pravatar.cc/150?img=10",
+      "university": "Sakarya Üniversitesi",
+      "department": "Makine Mühendisliği",
+      "bio_text": "Merhaba, ben Makine Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-03-17T15:14:59.462639",
+      "updated_at": "2025-09-23T15:14:59.462639",
+      "favorites": [
+        "prod_007",
+        "prod_005"
+      ]
+    },
+    "user_010": {
+      "name": "Kerem Arslan",
+      "username": "kerem.arslan",
+      "email": "kerem.arslan@subu.edu.tr",
+      "password_hash": "hashed_password_10",
+      "phone_number": "+905323304130",
+      "profile_image": "https://i.pravatar.cc/150?img=11",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Kimya",
+      "bio_text": "Merhaba, ben Kimya öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2024-10-19T15:14:59.462639",
+      "updated_at": "2025-09-09T15:14:59.462639",
+      "favorites": [
+        "prod_004",
+        "prod_006"
+      ]
+    },
+    "user_011": {
+      "name": "Ece Polat",
+      "username": "ece.polat",
+      "email": "ece.polat@sakarya.edu.tr",
+      "password_hash": "hashed_password_11",
+      "phone_number": "+905122265680",
+      "profile_image": "https://i.pravatar.cc/150?img=12",
+      "university": "Sakarya Üniversitesi",
+      "department": "Matematik",
+      "bio_text": "Merhaba, ben Matematik öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-06-15T15:14:59.462639",
+      "updated_at": "2025-10-01T15:14:59.462639",
+      "favorites": [
+        "prod_017",
+        "prod_001",
+        "prod_004",
+        "prod_020"
+      ]
+    },
+    "user_012": {
+      "name": "Emre Aksoy",
+      "username": "emre.aksoy",
+      "email": "emre.aksoy@sakarya.edu.tr",
+      "password_hash": "hashed_password_12",
+      "phone_number": "+905732234818",
+      "profile_image": "https://i.pravatar.cc/150?img=13",
+      "university": "Sakarya Üniversitesi",
+      "department": "Bilgisayar Mühendisliği",
+      "bio_text": "Merhaba, ben Bilgisayar Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2024-11-11T15:14:59.462639",
+      "updated_at": "2025-09-21T15:14:59.462639",
+      "favorites": [
+        "prod_004",
+        "prod_001",
+        "prod_007"
+      ]
+    },
+    "user_013": {
+      "name": "Seda Korkmaz",
+      "username": "seda.korkmaz",
+      "email": "seda.korkmaz@sakarya.edu.tr",
+      "password_hash": "hashed_password_13",
+      "phone_number": "+905680262317",
+      "profile_image": "https://i.pravatar.cc/150?img=14",
+      "university": "Sakarya Üniversitesi",
+      "department": "Matematik",
+      "bio_text": "Merhaba, ben Matematik öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-08-07T15:14:59.462639",
+      "updated_at": "2025-09-07T15:14:59.462639",
+      "favorites": [
+        "prod_010",
+        "prod_004",
+        "prod_006",
+        "prod_007"
+      ]
+    },
+    "user_014": {
+      "name": "Onur Yıldırım",
+      "username": "onur.yildirim",
+      "email": "onur.yildirim@subu.edu.tr",
+      "password_hash": "hashed_password_14",
+      "phone_number": "+905100756490",
+      "profile_image": "https://i.pravatar.cc/150?img=15",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "İşletme",
+      "bio_text": "Merhaba, ben İşletme öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-06-21T15:14:59.462639",
+      "updated_at": "2025-08-18T15:14:59.462639",
+      "favorites": [
+        "prod_019",
+        "prod_007",
+        "prod_006",
+        "prod_008"
+      ]
+    },
+    "user_015": {
+      "name": "Merve Güneş",
+      "username": "merve.günes",
+      "email": "merve.günes@subu.edu.tr",
+      "password_hash": "hashed_password_15",
+      "phone_number": "+905618008487",
+      "profile_image": "https://i.pravatar.cc/150?img=16",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Psikoloji",
+      "bio_text": "Merhaba, ben Psikoloji öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2024-12-29T15:14:59.462639",
+      "updated_at": "2025-10-03T15:14:59.462639",
+      "favorites": [
+        "prod_008",
+        "prod_003",
+        "prod_006",
+        "prod_013",
+        "prod_001"
+      ]
+    },
+    "user_016": {
+      "name": "Serkan Taş",
+      "username": "serkan.tas",
+      "email": "serkan.tas@subu.edu.tr",
+      "password_hash": "hashed_password_16",
+      "phone_number": "+905736997500",
+      "profile_image": "https://i.pravatar.cc/150?img=17",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Makine Mühendisliği",
+      "bio_text": "Merhaba, ben Makine Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-09-08T15:14:59.462639",
+      "updated_at": "2025-09-04T15:14:59.462639",
+      "favorites": [
+        "prod_020",
+        "prod_019",
+        "prod_017",
+        "prod_013"
+      ]
+    },
+    "user_017": {
+      "name": "İpek Özer",
+      "username": "i̇pek.ozer",
+      "email": "i̇pek.ozer@sakarya.edu.tr",
+      "password_hash": "hashed_password_17",
+      "phone_number": "+905896538109",
+      "profile_image": "https://i.pravatar.cc/150?img=18",
+      "university": "Sakarya Üniversitesi",
+      "department": "Makine Mühendisliği",
+      "bio_text": "Merhaba, ben Makine Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-02-19T15:14:59.462639",
+      "updated_at": "2025-08-31T15:14:59.462639",
+      "favorites": [
+        "prod_015",
+        "prod_006"
+      ]
+    },
+    "user_018": {
+      "name": "Yusuf Özdemir",
+      "username": "yusuf.ozdemir",
+      "email": "yusuf.ozdemir@sakarya.edu.tr",
+      "password_hash": "hashed_password_18",
+      "phone_number": "+905550829520",
+      "profile_image": "https://i.pravatar.cc/150?img=19",
+      "university": "Sakarya Üniversitesi",
+      "department": "Makine Mühendisliği",
+      "bio_text": "Merhaba, ben Makine Mühendisliği öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-09-29T15:14:59.462639",
+      "updated_at": "2025-09-06T15:14:59.462639",
+      "favorites": [
+        "prod_011",
+        "prod_002",
+        "prod_017",
+        "prod_013"
+      ]
+    },
+    "user_019": {
+      "name": "Selin Doğan",
+      "username": "selin.dogan",
+      "email": "selin.dogan@subu.edu.tr",
+      "password_hash": "hashed_password_19",
+      "phone_number": "+905660789318",
+      "profile_image": "https://i.pravatar.cc/150?img=20",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Psikoloji",
+      "bio_text": "Merhaba, ben Psikoloji öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-01-16T15:14:59.462639",
+      "updated_at": "2025-09-10T15:14:59.462639",
+      "favorites": [
+        "prod_018",
+        "prod_011",
+        "prod_012"
+      ]
+    },
+    "user_020": {
+      "name": "Bora Yavuz",
+      "username": "bora.yavuz",
+      "email": "bora.yavuz@subu.edu.tr",
+      "password_hash": "1234",
+      "phone_number": "+905926491092",
+      "profile_image": "https://i.pravatar.cc/150?img=21",
+      "university": "Sakarya Uygulamalı Bilimler Üniversitesi",
+      "department": "Psikoloji",
+      "bio_text": "Merhaba, ben Psikoloji öğrencisiyim. Kampüste ikinci el ürün paylaşmayı severim.",
+      "created_at": "2025-09-24T15:14:59.462639",
+      "updated_at": "2025-09-25T15:14:59.462639",
+      "favorites": [
+        "prod_013",
+        "prod_016",
+        "prod_002"
+      ]
+    }
+  },
+  "Products": {
+    "prod_001": {
+      "user_id": "user_006",
+      "title": "Apple iPhone 11 64GB",
+      "cover_image_url": "https://picsum.photos/seed/229/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/210/800/600",
+        "https://picsum.photos/seed/233/800/600",
+        "https://picsum.photos/seed/220/800/600"
+      ],
+      "price": 7637.87,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 25,
+      "description": "Apple iPhone 11 64GB - detaylı açıklama burada.",
+      "condition": "Az Kullanılmış",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-03-04T15:14:59.462639",
+      "updated_at": "2025-09-08T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_002": {
+      "user_id": "user_017",
+      "title": "Lenovo Ideapad 15\" i5 Laptop",
+      "cover_image_url": "https://picsum.photos/seed/214/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/208/800/600",
+        "https://picsum.photos/seed/224/800/600",
+        "https://picsum.photos/seed/205/800/600"
+      ],
+      "price": 9404.19,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 116,
+      "description": "Lenovo Ideapad 15\" i5 Laptop - detaylı açıklama burada.",
+      "condition": "İkinci El",
+      "size": null,
+      "dimension": null,
+      "is_sold": true,
+      "created_at": "2025-07-18T15:14:59.462639",
+      "updated_at": "2025-09-24T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_003": {
+      "user_id": "user_014",
+      "title": "Samsung 24\" Full HD Monitör",
+      "cover_image_url": "https://picsum.photos/seed/211/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/240/800/600",
+        "https://picsum.photos/seed/203/800/600",
+        "https://picsum.photos/seed/234/800/600"
+      ],
+      "price": 5759.81,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 124,
+      "description": "Samsung 24\" Full HD Monitör - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": true,
+      "created_at": "2025-01-26T15:14:59.462639",
+      "updated_at": "2025-09-18T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_004": {
+      "user_id": "user_015",
+      "title": "Canon EOS 200D Fotoğraf Makinesi + Lens",
+      "cover_image_url": "https://picsum.photos/seed/224/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/232/800/600",
+        "https://picsum.photos/seed/218/800/600",
+        "https://picsum.photos/seed/229/800/600"
+      ],
+      "price": 2814.18,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 91,
+      "description": "Canon EOS 200D Fotoğraf Makinesi + Lens - detaylı açıklama burada.",
+      "condition": "İkinci El",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-09-30T15:14:59.462639",
+      "updated_at": "2025-09-03T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_005": {
+      "user_id": "user_010",
+      "title": "Ikea Linnmon Çalışma Masası 120x60 cm",
+      "cover_image_url": "https://picsum.photos/seed/221/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/214/800/600",
+        "https://picsum.photos/seed/217/800/600",
+        "https://picsum.photos/seed/239/800/600"
+      ],
+      "price": 2408.37,
+      "category_id": "c2",
+      "category_name": "Mobilya",
+      "likes_count": 11,
+      "description": "Ikea Linnmon Çalışma Masası 120x60 cm - detaylı açıklama burada.",
+      "condition": "Az Kullanılmış",
+      "size": null,
+      "dimension": "200x150 cm",
+      "is_sold": false,
+      "created_at": "2024-11-07T15:14:59.462639",
+      "updated_at": "2025-09-21T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_006": {
+      "user_id": "user_018",
+      "title": "Ahşap Yemek Masası Takımı (4 Sandalyeli)",
+      "cover_image_url": "https://picsum.photos/seed/215/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/213/800/600",
+        "https://picsum.photos/seed/229/800/600",
+        "https://picsum.photos/seed/212/800/600"
+      ],
+      "price": 11713.44,
+      "category_id": "c2",
+      "category_name": "Mobilya",
+      "likes_count": 190,
+      "description": "Ahşap Yemek Masası Takımı (4 Sandalyeli) - detaylı açıklama burada.",
+      "condition": "Az Kullanılmış",
+      "size": null,
+      "dimension": "220x90 cm",
+      "is_sold": false,
+      "created_at": "2025-01-31T15:14:59.462639",
+      "updated_at": "2025-09-24T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_007": {
+      "user_id": "user_005",
+      "title": "3 Kişilik Kamp Çadırı",
+      "cover_image_url": "https://picsum.photos/seed/236/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/230/800/600",
+        "https://picsum.photos/seed/221/800/600",
+        "https://picsum.photos/seed/225/800/600"
+      ],
+      "price": 710.02,
+      "category_id": "c8",
+      "category_name": "Outdoor",
+      "likes_count": 64,
+      "description": "3 Kişilik Kamp Çadırı - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": "120x60 cm",
+      "is_sold": false,
+      "created_at": "2024-09-15T15:14:59.462639",
+      "updated_at": "2025-09-08T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_008": {
+      "user_id": "user_020",
+      "title": "Java Programlama Kitabı (2. Baskı)",
+      "cover_image_url": "https://picsum.photos/seed/239/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/205/800/600",
+        "https://picsum.photos/seed/231/800/600",
+        "https://picsum.photos/seed/234/800/600"
+      ],
+      "price": 3464.22,
+      "category_id": "c3",
+      "category_name": "Kitap",
+      "likes_count": 68,
+      "description": "Java Programlama Kitabı (2. Baskı) - detaylı açıklama burada.",
+      "condition": "Az Kullanılmış",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-07-26T15:14:59.462639",
+      "updated_at": "2025-08-23T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_009": {
+      "user_id": "user_018",
+      "title": "Harry Potter 7'li Seti",
+      "cover_image_url": "https://picsum.photos/seed/237/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/224/800/600",
+        "https://picsum.photos/seed/235/800/600",
+        "https://picsum.photos/seed/210/800/600"
+      ],
+      "price": 13556.0,
+      "category_id": "c3",
+      "category_name": "Kitap",
+      "likes_count": 30,
+      "description": "Harry Potter 7'li Seti - detaylı açıklama burada.",
+      "condition": "İkinci El",
+      "size": null,
+      "dimension": null,
+      "is_sold": true,
+      "created_at": "2024-09-04T15:14:59.462639",
+      "updated_at": "2025-09-25T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_010": {
+      "user_id": "user_003",
+      "title": "Adidas Koşu Ayakkabısı 42 Numara",
+      "cover_image_url": "https://picsum.photos/seed/234/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/225/800/600",
+        "https://picsum.photos/seed/219/800/600",
+        "https://picsum.photos/seed/227/800/600"
+      ],
+      "price": 13903.69,
+      "category_id": "c4",
+      "category_name": "Giyim",
+      "likes_count": 115,
+      "description": "Adidas Koşu Ayakkabısı 42 Numara - detaylı açıklama burada. Beden: 42",
+      "condition": "İkinci El",
+      "size": "42",
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2024-12-30T15:14:59.462639",
+      "updated_at": "2025-09-17T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_011": {
+      "user_id": "user_017",
+      "title": "Zara Kadın Mont - M Beden",
+      "cover_image_url": "https://picsum.photos/seed/219/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/218/800/600",
+        "https://picsum.photos/seed/225/800/600",
+        "https://picsum.photos/seed/219/800/600"
+      ],
+      "price": 13259.49,
+      "category_id": "c4",
+      "category_name": "Giyim",
+      "likes_count": 229,
+      "description": "Zara Kadın Mont - M Beden - detaylı açıklama burada. Beden: M",
+      "condition": "Yeni",
+      "size": "M",
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-01-21T15:14:59.462639",
+      "updated_at": "2025-09-23T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_012": {
+      "user_id": "user_011",
+      "title": "Bisiklet 26 Jant Vitesli",
+      "cover_image_url": "https://picsum.photos/seed/230/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/220/800/600",
+        "https://picsum.photos/seed/211/800/600",
+        "https://picsum.photos/seed/224/800/600"
+      ],
+      "price": 1915.01,
+      "category_id": "c5",
+      "category_name": "Spor",
+      "likes_count": 24,
+      "description": "Bisiklet 26 Jant Vitesli - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": true,
+      "created_at": "2024-09-30T15:14:59.462639",
+      "updated_at": "2025-08-16T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_013": {
+      "user_id": "user_001",
+      "title": "Spor Salonu Dambıl Seti 30 kg",
+      "cover_image_url": "https://picsum.photos/seed/220/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/222/800/600",
+        "https://picsum.photos/seed/226/800/600",
+        "https://picsum.photos/seed/209/800/600"
+      ],
+      "price": 14325.68,
+      "category_id": "c5",
+      "category_name": "Spor",
+      "likes_count": 175,
+      "description": "Spor Salonu Dambıl Seti 30 kg - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-07-12T15:14:59.462639",
+      "updated_at": "2025-10-03T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_014": {
+      "user_id": "user_010",
+      "title": "Oyuncak Lego Seti - 500 Parça",
+      "cover_image_url": "https://picsum.photos/seed/218/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/234/800/600",
+        "https://picsum.photos/seed/222/800/600",
+        "https://picsum.photos/seed/216/800/600"
+      ],
+      "price": 354.83,
+      "category_id": "c6",
+      "category_name": "Oyuncak",
+      "likes_count": 34,
+      "description": "Oyuncak Lego Seti - 500 Parça - detaylı açıklama burada.",
+      "condition": "İkinci El",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-02-08T15:14:59.462639",
+      "updated_at": "2025-09-04T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_015": {
+      "user_id": "user_019",
+      "title": "Kedi Taşıma Çantası - Orta Boy",
+      "cover_image_url": "https://picsum.photos/seed/234/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/217/800/600",
+        "https://picsum.photos/seed/209/800/600",
+        "https://picsum.photos/seed/206/800/600"
+      ],
+      "price": 2513.21,
+      "category_id": "c7",
+      "category_name": "Evcil Hayvan",
+      "likes_count": 235,
+      "description": "Kedi Taşıma Çantası - Orta Boy - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": true,
+      "created_at": "2024-11-27T15:14:59.462639",
+      "updated_at": "2025-08-21T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_016": {
+      "user_id": "user_008",
+      "title": "Samsung Galaxy Buds Pro",
+      "cover_image_url": "https://picsum.photos/seed/225/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/221/800/600",
+        "https://picsum.photos/seed/236/800/600",
+        "https://picsum.photos/seed/233/800/600"
+      ],
+      "price": 8625.46,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 105,
+      "description": "Samsung Galaxy Buds Pro - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-02-28T15:14:59.462639",
+      "updated_at": "2025-08-23T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_017": {
+      "user_id": "user_014",
+      "title": "Gaming Sandalye - Ergonomik",
+      "cover_image_url": "https://picsum.photos/seed/215/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/236/800/600",
+        "https://picsum.photos/seed/226/800/600",
+        "https://picsum.photos/seed/213/800/600"
+      ],
+      "price": 12041.1,
+      "category_id": "c2",
+      "category_name": "Mobilya",
+      "likes_count": 160,
+      "description": "Gaming Sandalye - Ergonomik - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": "200x150 cm",
+      "is_sold": true,
+      "created_at": "2024-11-02T15:14:59.462639",
+      "updated_at": "2025-08-15T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_018": {
+      "user_id": "user_011",
+      "title": "Çalışma Lambası - LED",
+      "cover_image_url": "https://picsum.photos/seed/226/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/216/800/600",
+        "https://picsum.photos/seed/237/800/600",
+        "https://picsum.photos/seed/210/800/600"
+      ],
+      "price": 501.47,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 40,
+      "description": "Çalışma Lambası - LED - detaylı açıklama burada.",
+      "condition": "İkinci El",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2025-02-15T15:14:59.462639",
+      "updated_at": "2025-09-05T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_019": {
+      "user_id": "user_009",
+      "title": "Vestel Buzdolabı - İkinci El",
+      "cover_image_url": "https://picsum.photos/seed/231/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/216/800/600",
+        "https://picsum.photos/seed/221/800/600",
+        "https://picsum.photos/seed/212/800/600"
+      ],
+      "price": 5997.69,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 54,
+      "description": "Vestel Buzdolabı - İkinci El - detaylı açıklama burada.",
+      "condition": "Az Kullanılmış",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2024-12-09T15:14:59.462639",
+      "updated_at": "2025-09-26T15:14:59.462639",
+      "questions": {}
+    },
+    "prod_020": {
+      "user_id": "user_007",
+      "title": "Kahve Makinesi - Filtreli",
+      "cover_image_url": "https://picsum.photos/seed/205/800/600",
+      "product_images": [
+        "https://picsum.photos/seed/222/800/600",
+        "https://picsum.photos/seed/239/800/600",
+        "https://picsum.photos/seed/213/800/600"
+      ],
+      "price": 1755.87,
+      "category_id": "c1",
+      "category_name": "Elektronik",
+      "likes_count": 73,
+      "description": "Kahve Makinesi - Filtreli - detaylı açıklama burada.",
+      "condition": "Yeni",
+      "size": null,
+      "dimension": null,
+      "is_sold": false,
+      "created_at": "2024-10-30T15:14:59.462639",
+      "updated_at": "2025-09-09T15:14:59.462639",
+      "questions": {}
+    }
+  },
+  "Categories": {
+    "c1": {
+      "name": "Elektronik",
+      "icon": "📱",
+      "product_number": 8
+    },
+    "c2": {
+      "name": "Mobilya",
+      "icon": "🪑",
+      "product_number": 3
+    },
+    "c3": {
+      "name": "Kitap",
+      "icon": "📚",
+      "product_number": 2
+    },
+    "c4": {
+      "name": "Giyim",
+      "icon": "👕",
+      "product_number": 2
+    },
+    "c5": {
+      "name": "Spor",
+      "icon": "⚽",
+      "product_number": 2
+    },
+    "c6": {
+      "name": "Oyuncak",
+      "icon": "🧸",
+      "product_number": 1
+    },
+    "c7": {
+      "name": "Evcil Hayvan",
+      "icon": "🐾",
+      "product_number": 1
+    },
+    "c8": {
+      "name": "Outdoor",
+      "icon": "📦",
+      "product_number": 1
+    }
+  }
+}

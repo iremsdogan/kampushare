@@ -35,7 +35,6 @@ class ChatPage extends StatelessWidget{
       ),
       body: Column(
         children: [
-          //mesaj listesi
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(16),
@@ -48,13 +47,11 @@ class ChatPage extends StatelessWidget{
               ],
             ),
           ),
-          // alt kısım - mesaj yazma
           _buildMessageInput(),
         ],
       )
     );
   }
-  // Karşı taraf mesaj balonu
   Widget _buildReceiverMessage(String text){
     return Align(
       alignment: Alignment.centerLeft,
@@ -72,7 +69,6 @@ class ChatPage extends StatelessWidget{
       ),
     );
   }
-  // Senin mesaj balonu
   Widget _buildSenderMessage(String text){
     return Align(
       alignment: Alignment.centerRight,
@@ -88,7 +84,6 @@ class ChatPage extends StatelessWidget{
       ),
     );
   }
-  // Alt kısımdaki input bar
   Widget _buildMessageInput() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -109,17 +104,17 @@ class ChatPage extends StatelessWidget{
               ),
               child: const TextField(
                 decoration: InputDecoration(
-                  hintText: "Type a message...",
+                  hintText: "Bir mesaj yazın...",
                   border: InputBorder.none,
                 ),
               ),
             ),
           ),
           const SizedBox(width: 8,),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 24,
             backgroundColor: const Color(0xFF4facfe),
-            child: const Icon(Icons.send, color: Colors.white,
+            child: Icon(Icons.send, color: Colors.white,
             ),
           ),
         ],

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
 import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
-import '../../models/products.dart';
+import '../../models/user_model.dart';
 import '../../widgets/custom_bottom_nav_bar.dart';
+import '../../routes/routes.dart';
 
 class FavoritesPage extends StatefulWidget{
 
@@ -21,31 +22,100 @@ class _FavoritesPageState extends State<FavoritesPage>
     setState(() {
       _selectedItem = index;
     });
+    final user = ModalRoute.of(context)!.settings.arguments as UserModel?;
     if(index == 0){
-      Navigator.pushNamed(context, "/home");
+      Navigator.pushNamed(context, AppRoutes.home, arguments: user);
+    } else if (index == 2) {
+      Navigator.pushNamed(context, AppRoutes.addproduct);
     }
     else if(index == 3){
-      Navigator.pushNamed(context, "/chatmenu");
+      Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
+    } else if (index == 4) {
+      Navigator.pushNamed(context, AppRoutes.profilemenu, arguments: user);
     }
   }
 
   @override
   Widget build(BuildContext context){
 
+    final user = ModalRoute.of(context)!.settings.arguments as UserModel?;
+    if (user == null) {
+      return const Scaffold(body: Center(child: Text("Kullanıcı bilgisi bulunamadı.")));
+    }
     final favorites = context.watch<ProductsProvider>().products.where((p)=>p.isFavorite).toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Favorites",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.orangeAccent,
-        automaticallyImplyLeading: false, 
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.teal,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(25),
+              bottomRight: Radius.circular(25),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 6,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: const SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              child: Center(
+                child: 
+                  Text(
+                    "Favorilerim",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),
+                  ),
+              ),
+            ),
+          ),
+        ),
       ),
+
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFFF1F3F8) 
         ),
         child: favorites.isEmpty ? 
-          const Center(child: Text("No Favorites Yet")) : 
+            const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.favorite_border_outlined,
+                    size: 100,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Henüz favori ürün eklemediniz', 
+                    style: TextStyle(
+                      fontSize: 24, 
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Beğendiğiniz ürünleri favorilerinize ekleyin', 
+                    style: TextStyle(
+                      fontSize: 16, 
+                      color: Colors.grey
+                    ),
+                  ),
+                ],
+              ),
+            ) 
+          : 
           GridView.builder(
             padding: const EdgeInsets.all(10),
             itemCount: favorites.length,
@@ -78,9 +148,20 @@ class _FavoritesPageState extends State<FavoritesPage>
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.network(
-                              product.image,
+                              product.coverImageUrl,
                               height: 160,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  height: 160,
+                                  color: Colors.grey[300],
+                                  child: const Icon(
+                                    Icons.image_not_supported,
+                                    size: 50,
+                                    color: Colors.grey,
+                                  ),
+                                );
+                              },
                             ),
                           ),
                           Positioned(
@@ -93,13 +174,11 @@ class _FavoritesPageState extends State<FavoritesPage>
                               child: IconButton(
                                 icon: Icon(
                                   product.isFavorite ? Icons.favorite : Icons.favorite_border,
-                                  color: Colors.pinkAccent,
+                                  color: Colors.black,
                                 ),
                                 onPressed: () {
-                                  setState(() {
-                                    product.isFavorite = !product.isFavorite;
-                                  });
-                                }, 
+                                  context.read<ProductsProvider>().toggleFavorite(product.productId);
+                                },
                               ),
                             ),
                           ),
@@ -107,7 +186,7 @@ class _FavoritesPageState extends State<FavoritesPage>
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        product.name, 
+                        product.title, 
                         style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),

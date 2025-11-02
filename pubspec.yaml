@@ -23,6 +23,7 @@ dependencies:
   image_picker: 1.1.2
   provider: 6.1.5
   uuid: 4.5.1
+  cached_network_image: ^3.3.1
 
 
 dev_dependencies:
@@ -35,7 +36,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - assets/products.json
+    - assets/users_products.json
     
   uses-material-design: true
 

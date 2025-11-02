@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:kampushare/widgets/custom_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
-import 'package:kampushare/screens/favorites_page/favorites_page.dart';
 import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
-import '../../models/products.dart';
-import '../chat_menu_page/chat_menu_page.dart';
+import '../../models/user_model.dart';
+import '../../models/product_model.dart';
+import '../../routes/routes.dart';
 
 class HomePage extends StatefulWidget{
 
-  final String? username;
-  const HomePage({super.key, this.username});
+  final UserModel user;
+  const HomePage({super.key, required this.user});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage>{
 
+  late Future<void> _loadProductsFuture;
   bool _isLoading = true;
   int _selectedItem = 0;
 
@@ -36,20 +37,16 @@ class _HomePageState extends State<HomePage>{
 
   void _onItemTapped(int item){
     if(item == 1) {
-      Navigator.push(
-        context, 
-        MaterialPageRoute(
-          builder: (context) => const FavoritesPage(),
-        ),
-      );
+      Navigator.pushNamed(context, AppRoutes.favorites, arguments: widget.user);
+    }
+    else if(item == 2){
+      Navigator.pushNamed(context, AppRoutes.addproduct);
     }
     else if(item == 3){
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const ChatMenuPage(),
-        )
-      );
+      Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: widget.user);
+    }
+    else if(item == 4){
+      Navigator.pushNamed(context, AppRoutes.profilemenu, arguments: widget.user);
     }
     else{
       setState(() {
@@ -75,7 +72,7 @@ class _HomePageState extends State<HomePage>{
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 20, top:10),
-              child: const Text("Products", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,),),
+              child: const Text("Ürünler", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,),),
             ),
             Expanded(
               child: Padding(
@@ -101,8 +98,7 @@ class _HomePageState extends State<HomePage>{
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _selectedItem, 
         onTap: _onItemTapped,
-      ),
-    );
+      ),    );
   }
 
   Widget _buildSearchBar(){
@@ -122,7 +118,7 @@ class _HomePageState extends State<HomePage>{
         ),
         child: TextField(
           decoration: InputDecoration(
-            hintText: 'Hello, ${widget.username ?? 'Guest'}', hintStyle: const TextStyle(fontWeight: FontWeight.bold),
+            hintText: 'Selam, ${widget.user.name}', hintStyle: const TextStyle(fontWeight: FontWeight.bold),
             suffixIcon: const Icon(Icons.search),
             contentPadding: const EdgeInsets.symmetric(horizontal: 15),
             border: OutlineInputBorder(
@@ -157,9 +153,20 @@ class _HomePageState extends State<HomePage>{
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Image.network(
-                      product.image, 
+                      product.coverImageUrl, 
                       height: 160,
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          height: 160,
+                          color: Colors.grey[300],
+                          child: const Icon(
+                            Icons.image_not_supported,
+                            size: 50,
+                            color: Colors.grey,
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Positioned(
@@ -175,12 +182,10 @@ class _HomePageState extends State<HomePage>{
                         icon: Icon(
                           product.isFavorite ? Icons.favorite : 
                           Icons.favorite_border, 
-                          color: Colors.pinkAccent
+                          color: Colors.black
                         ),
                         onPressed: (){
-                          setState(() {
-                            product.isFavorite = !product.isFavorite;
-                          });
+                          context.read<ProductsProvider>().toggleFavorite(product.productId);
                         },
                       ),
                     ),
@@ -189,13 +194,13 @@ class _HomePageState extends State<HomePage>{
               ),
               const SizedBox(height: 10),
               Text(
-                product.name,
+                product.title,
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
-                '₺${product.price}',
+                '₺${product.price.toString()}',
                 style: const TextStyle(color:Colors.black, fontSize: 18),
               ),
             ],
@@ -205,5 +210,3 @@ class _HomePageState extends State<HomePage>{
     );
   }
 }
-
-

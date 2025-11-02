@@ -4,11 +4,14 @@ import 'providers/products_provider.dart';
 import 'routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'services/import_service.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
+   //await ImportService().importJsonToFirestore();
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => ProductsProvider()..loadProducts()),
@@ -23,11 +26,11 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
+    return const MaterialApp(
       title: 'KampuShare',
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.login,
-      routes: AppRoutes.routes,
     );
   }
 }
