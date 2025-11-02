@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kampushare/widgets/custom_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
@@ -14,13 +15,16 @@ class HomePage extends StatefulWidget{
 
   @override
   State<HomePage> createState() => _HomePageState();
+  
 }
 
 class _HomePageState extends State<HomePage>{
-
-  late Future<void> _loadProductsFuture;
   bool _isLoading = true;
   int _selectedItem = 0;
+  String? _selectedCategory;
+  String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
+  Timer? _debounce;
 
   @override
   void initState(){
@@ -56,9 +60,24 @@ class _HomePageState extends State<HomePage>{
   }
 
   @override
+  void dispose(){
+      _debounce?.cancel();
+      super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context){
 
-    final products = context.watch<ProductsProvider>().products;
+    final allProducts = context.watch<ProductsProvider>().products;
+
+    final filteredProducts = allProducts.where((p) {
+      final matchesCategory = _selectedCategory == null || p.categoryName == _selectedCategory;
+      final matchesSearch = _searchQuery.isEmpty || p.title.toLowerCase().contains(_searchQuery.toLowerCase()) || p.categoryName.toLowerCase().contains(_searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }).toList();
+
+    final categories = allProducts.map((p) => p.categoryName).toSet().toList();
+
 
     return DefaultTabController(
       length: 2,
@@ -72,7 +91,7 @@ class _HomePageState extends State<HomePage>{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSearchBar(),
+              _buildSearchBar(categories),
               const TabBar(
                 indicatorColor: Colors.teal,
                 indicatorWeight: 3,
@@ -88,8 +107,8 @@ class _HomePageState extends State<HomePage>{
               Expanded(
                 child: TabBarView(
                   children: [
-                    _buildProductGrid(products),  // Bana Özel
-                    _buildExploreGrid(products),  // Keşfet
+                    _buildProductGrid(filteredProducts),  // Bana Özel
+                    _buildExploreGrid(filteredProducts),  // Keşfet
                   ],
                 ),
               ),
@@ -103,7 +122,7 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
-  Widget _buildSearchBar(){
+  Widget _buildSearchBar(List<String> categories){
     return Container(
         margin: const EdgeInsets.fromLTRB(10,50,10,10),
         padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
@@ -118,17 +137,86 @@ class _HomePageState extends State<HomePage>{
             ),
           ],
         ),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: 'Selam, ${widget.user.name}', hintStyle: const TextStyle(fontWeight: FontWeight.bold),
-            suffixIcon: const Icon(Icons.search),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide.none,
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _searchController,
+                onChanged: (value) => setState(() {
+                  _searchQuery = value;
+                }),
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.search), 
+                  prefixIconColor: Colors.grey,
+                  hintText: 'Ürün veya kategori ara...',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.filter_list, color: _selectedCategory != null ? Colors.teal : Colors.grey),
+              onPressed: () => _showFilterSheet(context, categories),
+            ),
+          ],
+        ),
+    );
+  }
+
+  void _showFilterSheet(BuildContext context, List<String> categories) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Container(
+            margin: const EdgeInsets.only(left: 4),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Kategoriye Göre Filtrele",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 8.0,
+                  runSpacing: 4.0,
+                  children: categories.map((category) {
+                    final isSelected = category == _selectedCategory;
+                    return ChoiceChip(
+                      label: Text(category),
+                      selected: isSelected,
+                      onSelected: (selected) {
+                        setState(() {
+                          _selectedCategory = selected ? category : null;
+                        });
+                        Navigator.pop(context);
+                      },
+                      selectedColor: Colors.teal[100],
+                      checkmarkColor: Colors.teal,
+                    );
+                  }).toList(),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: const Icon(Icons.clear_all),
+                  title: const Text("Filtreyi Temizle"),
+                  onTap: (){
+                    setState(() { _selectedCategory = null; });
+                    Navigator.pop(context);
+                  },
+                )
+              ],
             ),
           ),
-        ),
+        );
+      },
     );
   }
 
@@ -138,7 +226,7 @@ class _HomePageState extends State<HomePage>{
           Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.only(left: 20, top:10),
-            child: const Text("Senin için seçtiklerimiz", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,),),
+            child: const Text("Senin için seçtiklerimiz", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,),),
           ),
           Expanded(
             child: Padding(
