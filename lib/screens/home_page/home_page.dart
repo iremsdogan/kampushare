@@ -60,45 +60,47 @@ class _HomePageState extends State<HomePage>{
 
     final products = context.watch<ProductsProvider>().products;
 
-    return Scaffold(
-      body: _isLoading ? const Center(child: CircularProgressIndicator(),) : 
-      Container(
-        decoration: const BoxDecoration(
-            color: Color(0xFFF1F3F8),
-        ),
-        child: Column(
-          children: [
-            _buildSearchBar(),
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 20, top:10),
-              child: const Text("Ürünler", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,),),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: GridView.builder(
-                  itemCount: products.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 3 / 4, 
-                  ),
-                  itemBuilder: (context, index) {
-                    final product = products[index];
-                    return _buildProductCard(product);
-                  },
+    return DefaultTabController(
+      length: 2,
+      initialIndex: 0,
+      child: Scaffold(
+        body: _isLoading ? const Center(child: CircularProgressIndicator(),) : 
+        Container(
+          decoration: const BoxDecoration(
+              color: Color(0xFFF1F3F8),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildSearchBar(),
+              const TabBar(
+                indicatorColor: Colors.teal,
+                indicatorWeight: 3,
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: Colors.teal,
+                labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                unselectedLabelColor: Colors.grey,
+                tabs: [
+                  Tab(text: "Bana Özel",),
+                  Tab(text: "Keşfet",),
+                ]
+              ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    _buildProductGrid(products),  // Bana Özel
+                    _buildExploreGrid(products),  // Keşfet
+                  ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _selectedItem, 
-        onTap: _onItemTapped,
-      ),    );
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: _selectedItem, 
+          onTap: _onItemTapped,
+        ),    ),
+    );
   }
 
   Widget _buildSearchBar(){
@@ -127,6 +129,57 @@ class _HomePageState extends State<HomePage>{
             ),
           ),
         ),
+    );
+  }
+
+  Widget _buildProductGrid(List<Product> products){
+    return Column(
+        children: [ 
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 20, top:10),
+            child: const Text("Senin için seçtiklerimiz", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,),),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8,0,8,8),
+              child: GridView.builder(
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 3 / 4, 
+                ),
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return _buildProductCard(product);
+                },
+              ),
+            ),
+          ),
+        ],
+      
+    );
+  }
+
+  //şimdilik bana özel ile aynı grid yapısı kullanıldı
+  Widget _buildExploreGrid(List<Product> products){
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: GridView.builder(
+        itemCount: products.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 3 / 4, 
+        ),
+        itemBuilder: (context, index) {
+          final product = products[index];
+          return _buildProductCard(product);
+        },
+      ),
     );
   }
 
@@ -174,8 +227,6 @@ class _HomePageState extends State<HomePage>{
                     right: 5,
                     child: Container(
                       decoration: BoxDecoration(
-                        //color:Color(0xFFF1F3F8),
-                        // color: Colors.white10,
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: IconButton(
