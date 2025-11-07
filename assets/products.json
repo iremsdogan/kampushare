@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 11 64GB",
+    "description": "Çok temiz, çiziksiz. Kutusu mevcut. Pil sağlığı %86.",
+    "image": "https://picsum.photos/600?random=101",
+    "price": 10500.0,
+    "likes": 210,
+    "category": "Elektronik",
+    "dimension": "",
+    "size": ""
+  },
+  {
+    "id": 2,
+    "name": "İkea Çalışma Masası",
+    "description": "1 yıl kullanıldı, hasarsız. Rengi beyaz.",
+    "image": "https://picsum.photos/600?random=102",
+    "price": 950.0,
+    "likes": 87,
+    "category": "Mobilya",
+    "dimension": "120x60 cm",
+    "size": ""
+  },
+  {
+    "id": 3,
+    "name": "Adidas Koşu Ayakkabısı",
+    "description": "2-3 kez giyildi, kutusu duruyor. 42 numara.",
+    "image": "https://picsum.photos/600?random=103",
+    "price": 600.0,
+    "likes": 62,
+    "category": "Giyim",
+    "dimension": "",
+    "size": "43"
+  },
+  {
+    "id": 4,
+    "name": "Samsung 24 Monitör",
+    "description": "Çalışır durumda, ekranı çiziksiz. HDMI destekli.",
+    "image": "https://picsum.photos/600?random=104",
+    "price": 1450.0,
+    "likes": 78,
+    "category": "Elektronik",
+    "dimension": "24 inç",
+    "size": ""
+  },
+  {
+    "id": 5,
+    "name": "Kamp Çadırı - 3 Kişilik",
+    "description": "Bir kez kullanıldı. Her şeyi tam.",
+    "image": "https://picsum.photos/600?random=105",
+    "price": 750.0,
+    "likes": 40,
+    "category": "Outdoor",
+    "dimension": "200x200x130 cm",
+    "size": ""
+  },
+  {
+    "id": 6,
+    "name": "Bebek Arabası - Chicco",
+    "description": "İyi durumda, amortisörlü ve katlanabilir.",
+    "image": "https://picsum.photos/600?random=106",
+    "price": 1250.0,
+    "likes": 95,
+    "category": "Bebek",
+    "dimension": "",
+    "size": ""
+  },
+  {
+    "id": 7,
+    "name": "Canon 200D Fotoğraf Makinesi",
+    "description": "Çok az kullanıldı, lens dahil.",
+    "image": "https://picsum.photos/600?random=107",
+    "price": 8700.0,
+    "likes": 120,
+    "category": "Elektronik",
+    "dimension": "",
+    "size": ""
+  },
+  {
+    "id": 8,
+    "name": "Spor Salonu Ağırlık Seti",
+    "description": "Toplam 30 kg dambıl seti, kısa süre kullanıldı.",
+    "image": "https://picsum.photos/600?random=108",
+    "price": 850.0,
+    "likes": 45,
+    "category": "Spor",
+    "dimension": "Toplam 30 kg",
+    "size": ""
+  },
+  {
+    "id": 9,
+    "name": "Kedi Taşıma Çantası",
+    "description": "Hiç kullanılmadı. Orta boy.",
+    "image": "https://picsum.photos/600?random=109",
+    "price": 200.0,
+    "likes": 22,
+   "category": "Evcil Hayvan",
+    "dimension": "Orta boy",
+    "size": ""
+  },
+  {
+    "id": 10,
+    "name": "Harry Potter 7 Kitap Seti",
+    "description": "Sadece 1-2 kitap okundu. Kalanları sıfır gibi.",
+    "image": "https://picsum.photos/600?random=110",
+    "price": 500.0,
+    "likes": 70,
+    "category": "Kitap",
+    "dimension": "",
+    "size": ""
+  },
+  {
+    "id": 11,
+    "name": "Oyuncak Lego Seti",
+    "description": "Eksiksiz, orijinal kutusunda.",
+    "image": "https://picsum.photos/600?random=111",
+    "price": 350.0,
+    "likes": 48,
+    "category": "Oyuncak",
+    "dimension": "",
+    "size": ""
+  },
+  {
+    "id": 12,
+    "name": "Bisiklet - 26 Jant",
+    "description": "Vitesli, bakımlı ve temiz durumda.",
+    "image": "https://picsum.photos/600?random=112",
+    "price": 1800.0,
+    "likes": 65,
+    "category": "Spor",
+    "dimension": "26 inç",
+    "size": ""
+  },
+  {
+    "id": 13,
+    "name": "Yemek Masası Takımı",
+    "description": "Masa + 4 sandalye, masif ahşap.",
+    "image": "https://picsum.photos/600?random=113",
+    "price": 2500.0,
+    "likes": 82,
+    "category": "Mobilya",
+    "dimension": "Masa: 150x80 cm",
+    "size": ""
+  },
+  {
+    "id": 14,
+    "name": "Laptop - Lenovo i5",
+    "description": "8GB RAM, SSD. Sorunsuz çalışıyor.",
+    "image": "https://picsum.photos/600?random=114",
+    "price": 10500.0,
+    "likes": 150,
+    "category": "Elektronik",
+    "dimension": "14 inç",
+    "size": ""
+  },
+  {
+    "id": 15,
+    "name": "Kadın Mont - M Beden",
+    "description": "Az giyildi, temiz. Zara marka.",
+    "image": "https://picsum.photos/600?random=115",
+    "price": 450.0,
+    "likes": 53,
+    "category": "Giyim",
+    "dimension": "",
+    "size": "M"
+  }
+]
