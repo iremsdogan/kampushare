@@ -367,7 +367,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 onPressed: _publishProduct,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 ),
                 child: const Text(
