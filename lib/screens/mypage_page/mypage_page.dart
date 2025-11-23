@@ -56,11 +56,11 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
       body: CustomScrollView(
         slivers:[
           SliverToBoxAdapter(child: _buildHeader()),
-          SliverToBoxAdapter(child: const SizedBox(height:20)),
+          const SliverToBoxAdapter(child: SizedBox(height:20)),
           SliverToBoxAdapter(child: _buildTabs()),
-          SliverToBoxAdapter(child: const SizedBox(height:15)),
+          const SliverToBoxAdapter(child: SizedBox(height:15)),
           SliverToBoxAdapter(child: _buildFilterRow()),
-          SliverToBoxAdapter(child: const SizedBox(height:10)),
+          const SliverToBoxAdapter(child: SizedBox(height:10)),
           SliverToBoxAdapter(child: _buildCampaignCard()),
           const SliverToBoxAdapter(child: SizedBox(height:10)),
           ProductGrid(
@@ -85,11 +85,14 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.arrow_back),
-              Row(
+              IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),
+              ),
+              const Row(
                 children: [
                   Icon(Icons.share_outlined),
                   SizedBox(width:15),
@@ -112,7 +115,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                     backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=5'),
                   ),
                   Positioned(
-                    bottom: -2,
+                    top: -2,
                     right: -2,
                     child: InkWell(
                       onTap: () {
@@ -125,6 +128,52 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                       ),
                     ),
                   ),
+                  Positioned(
+                    bottom: -12,
+                    left: 0,
+                    right: 0,
+                    child: InkWell(
+                        onTap: () {
+                          print("Puan detayına gidildi");
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
+                          decoration: BoxDecoration(
+                            color: Colors.green.shade600,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 4,
+                                offset: Offset(0, 2),
+                              )
+                            ],
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.star, color:Colors.amber, size:20),
+                              SizedBox(width:5),
+                              Text( // şimdilik sabit puan
+                                "4.8",
+                                style: TextStyle(
+                                  fontSize:15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "  (9)",
+                                style: TextStyle(
+                                  fontSize:13,
+                                  color:Colors.black87,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(width: 20),
@@ -135,83 +184,57 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _statItem("15", "Satış"),
-                    _statItem("15", "Takipçi"),
-                    _statItem("2", "Takip"),
-                    _statItem("4", "Favori"),
+                    _statItem("15", "Satış", () {print("Satışlara gidildi");}),
+                    _statItem("15", "Takipçi", () {Navigator.pushNamed(context, AppRoutes.followers);}),
+                    _statItem("2", "Takip", () {Navigator.pushNamed(context, AppRoutes.following);}),
+                    _statItem("4", "Favori", () {print("Kullanıcının favorilerine gidildi");}),
                   ],
                 ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height:15),
+          const SizedBox(height:20),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "@${user.username}",
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  print("Puan detayına gidildi");
-                },
-                child: const Row(
+              Row(
                 children: [
-                  Icon(Icons.star, color:Colors.amber, size:20),
-                  SizedBox(width:5),
-                  Text( // şimdilik sabit puan
-                    "4.8",
-                    style: TextStyle(
-                      fontSize:16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
                   Text(
-                    "  (9)",
+                    "@${user.username}",
                     style: const TextStyle(
-                      fontSize:14,
-                      color:Colors.black87,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size:13,
-                    color:Colors.black87,
+                  const SizedBox(width: 20),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal:8, vertical:4),
+                    decoration: BoxDecoration(
+                      color:Colors.teal.shade50,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children:  [
+                        Icon(
+                          Icons.verified, 
+                          color: Colors.purpleAccent,
+                          size: 18,
+                        ),
+                        SizedBox(width: 4),
+                        Text(
+                          "Kampüsün Yıldızı",
+                          style: TextStyle(
+                            color:Colors.black,
+                            fontSize:14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ], 
+                    )
                   ),
                 ],
-              ),
-              ),
-              const SizedBox(height:5),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal:8, vertical:4),
-                decoration: BoxDecoration(
-                  color:Colors.teal.shade50,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children:  [
-                    Icon(
-                      Icons.verified, 
-                      color: Colors.purpleAccent,
-                      size: 18,
-                    ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      "Süper Satıcı",
-                      style: TextStyle(
-                        color:Colors.black,
-                        fontSize:14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ], 
-                )
               ),
             ],
           ),
@@ -219,25 +242,28 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
       ),
     );
   }
-  Widget _statItem(String value, String label){
-    return Column(
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize:18,
-            fontWeight: FontWeight.bold,
+  Widget _statItem(String value, String label, VoidCallback? onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize:18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        const SizedBox(height:2),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize:14,
-            color:Colors.black54,
+          const SizedBox(height:2),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize:14,
+              color:Colors.black54,
+            ),
           ),
-        ),
-      ],
+        ],
+      )
     );
   }
   Widget _buildTabs() {

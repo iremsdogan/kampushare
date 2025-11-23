@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kampushare/screens/favorites_page/favorites_page.dart';
 import '../screens/add_product_page/add_product_page.dart';
 import '../models/user_model.dart';
+import '../screens/followers_page/followers_page.dart';
+import '../screens/following_page/following_page.dart';
 import '../screens/home_page/home_page.dart';
 import '../screens/login_page/login_page.dart';
 import '../screens/chat_menu_page/chat_menu_page.dart';
@@ -21,6 +23,8 @@ class AppRoutes {
   static const String cart = '/cart';
   static const String profilemenu = '/profilemenu';
   static const String mypage = '/mypage';
+  static const String followers = '/followers';
+  static const String following = '/following';
   static const String profilesettings = '/profilesettings';
   static const String notifications = '/notifications';
   static const String changepassword = '/changepassword';
@@ -44,6 +48,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ProfileMenuPage(), settings: settings);
       case mypage:
         return MaterialPageRoute(builder: (_) => const MypagePage(), settings: settings);
+      case followers:
+        return MaterialPageRoute(builder: (_) => const FollowersPage(), settings: settings);
+      case following:
+        return MaterialPageRoute(builder: (_) => const FollowingPage(), settings: settings);
       case profilesettings:
         return MaterialPageRoute(builder: (_) => const ProfileSettingsPage(), settings: settings);
       case notifications:

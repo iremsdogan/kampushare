@@ -121,16 +121,37 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     },
                   ),
                   _buildMenuItem(
+                    icon: Icons.password,
+                    title: "Şifremi Değiştir",
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.profilesettings);
+                    },
+                  ),
+                  _buildMenuItem(
                     icon: Icons.verified_user_outlined,
                     title: "Satıcı Doğrulama",
                     onTap: () {},
                   ),
                   _buildMenuItem(
-                    icon: Icons.search,
-                    title: "Kaydettiğim Aramalar",
+                    icon: Icons.favorite_border,
+                    title: "Favorilerim",
                     onTap: () {
                       
                     },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.percent_outlined,
+                    title: "Tekliflerim",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.message_outlined,
+                    title: "Mesajlarım",
+                    onTap: () {},
                   ),
                   _buildMenuItem(
                     icon: Icons.shopping_cart_outlined,
@@ -143,6 +164,48 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     icon: Icons.settings_outlined,
                     title: "Ayarlar",
                     onTap: () {},
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.archive_outlined,
+                    title: "Kaydettiğim Aramalar",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.search,
+                    title: "Son Gezdiklerim",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.work_outline_sharp,
+                    title: "Biz Kimiz?",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.edit_notifications_outlined,
+                    title: "Bildirim Ayarları",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.beach_access_outlined,
+                    title: "Tatil Modu",
+                    onTap: () {
+                      
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.close_outlined,
+                    title: "Hesabımı Kapat",
+                    onTap: () {
+                      
+                    },
                   ),
                   _buildMenuItem(
                     icon: Icons.help_outline,
