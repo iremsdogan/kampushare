@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kampushare/widgets/custom_bottom_nav_bar.dart';
+import 'package:kampushare/widgets/product_grid.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
 import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
@@ -105,9 +106,9 @@ class _HomePageState extends State<HomePage>{
               ),
               Expanded(
                 child: TabBarView(
-                  children: [
-                    _buildProductGrid(filteredProducts),  // Bana Özel
-                    _buildExploreGrid(filteredProducts),  // Keşfet
+                  children: [  
+                    _buildExploreTab(filteredProducts),
+                    ProductGrid(products: filteredProducts),
                   ],
                 ),
               ),
@@ -230,132 +231,19 @@ class _HomePageState extends State<HomePage>{
     );
   }
 
-  Widget _buildProductGrid(List<Product> products){
+  Widget _buildExploreTab(List<Product> products) {
     return Column(
-        children: [ 
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.only(left: 20, top:10),
-            child: const Text("Senin için seçtiklerimiz", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,),),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(8,0,8,8),
-              child: GridView.builder(
-                itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 4, 
-                ),
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return _buildProductCard(product);
-                },
-              ),
-            ),
-          ),
-        ],
-      
-    );
-  }
-
-  //şimdilik bana özel ile aynı grid yapısı kullanıldı
-  Widget _buildExploreGrid(List<Product> products){
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: GridView.builder(
-        itemCount: products.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 3 / 4, 
+      children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.only(left: 20, top: 10),
+          margin: const EdgeInsets.only(bottom: 10),
+          child: const Text("Senin için seçtiklerimiz", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,),),
         ),
-        itemBuilder: (context, index) {
-          final product = products[index];
-          return _buildProductCard(product);
-        },
-      ),
-    );
-  }
-
-  Widget _buildProductCard(Product product){
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProductDetailPage(product: product),
-          ),
-        );
-      },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 2,
-        color: Colors.white,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      product.coverImageUrl, 
-                      height: 160,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          height: 160,
-                          color: Colors.grey[300],
-                          child: const Icon(
-                            Icons.image_not_supported,
-                            size: 50,
-                            color: Colors.grey,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Positioned(
-                    top: 5,
-                    right: 5,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          product.isFavorite ? Icons.favorite : 
-                          Icons.favorite_border, 
-                          color: Colors.black
-                        ),
-                        onPressed: (){
-                          context.read<ProductsProvider>().toggleFavorite(product.productId);
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text(
-                product.title,
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 10),
-              Text(
-                '₺${product.price.toString()}',
-                style: const TextStyle(color:Colors.black, fontSize: 18),
-              ),
-            ],
-          ),
-        )
-      ),
+        Expanded(
+          child: ProductGrid(products: products, padding: const EdgeInsets.fromLTRB(8, 0, 8, 8)),
+        ),
+      ],
     );
   }
 }

@@ -104,7 +104,12 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                   _buildMenuItem(
                     icon: Icons.storefront_outlined,
                     title: "Benim Sayfam",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.mypage, 
+                        arguments: user);
+                    },
                   ),
                   _buildMenuItem(
                     icon: Icons.person_outline,

@@ -76,25 +76,11 @@ class ProductDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            product.title,
-                            style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            product.price % 1 == 0
-                                ? "${product.price.toInt()}₺"
-                                : "${product.price}₺",
-                            style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      Text(
+                        product.title,
+                        style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       Row(
@@ -102,6 +88,16 @@ class ProductDetailPage extends StatelessWidget {
                           _buildTag(Icons.checkroom, "label1"),
                           const SizedBox(width: 8),
                           _buildTag(Icons.eco, "label2"),
+                          const Spacer(),
+                          Text(
+                            product.price % 1 == 0
+                                ? "${product.price.toInt()}₺"
+                                : "${product.price}₺",
+                            style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 20),
