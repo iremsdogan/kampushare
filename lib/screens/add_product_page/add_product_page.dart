@@ -262,19 +262,24 @@ class _AddProductPageState extends State<AddProductPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Ürün Başlığı (5+ karakter)",
+                      const Text("Ürün Başlığı (5 - 35 karakter)",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _titleController,
+                        maxLength: 35,
                         decoration: const InputDecoration(
                           hintText: "Örn: Zara Mom Jean Pantolon",
                           hintStyle: TextStyle(color: Colors.black45, fontSize: 14),
                           border: OutlineInputBorder(),
-                          
+                          counterText: "",
                         ),
-                        validator: (value) =>
-                            value != null && value.length < 5 ? 'Başlık en az 5 karakter olmalı' : null,
+                        validator: (value) {
+                          if (value == null || value.length < 5) {
+                            return 'Başlık en az 5 karakter olmalı';
+                          }
+                          return null;
+                        },
                       ),
                     ],
                   ),
@@ -367,7 +372,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 onPressed: _publishProduct,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                 ),
                 child: const Text(

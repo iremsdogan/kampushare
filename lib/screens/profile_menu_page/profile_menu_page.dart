@@ -14,10 +14,8 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
   int _selectedItem = 4;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedItem = index;
-    });
     final user = ModalRoute.of(context)!.settings.arguments as UserModel;
+
     if (index == 0) {
       Navigator.pushNamed(context, AppRoutes.home, arguments: user);
     } else if (index == 1) {
@@ -27,6 +25,10 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
     } else if (index == 3) {
       Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
     }
+
+    setState(() {
+      _selectedItem = index;
+    });
   }
 
   @override
@@ -79,23 +81,16 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
+                  const SizedBox(height: 20),
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(user.profileImage),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
                   Text(
-                    '${user.name} ${user.surname}',
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    user.email,
+                    "@${user.username}",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       color: Colors.grey[600],
                     ),
                   ),
@@ -107,15 +102,34 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
                   _buildMenuItem(
+                    icon: Icons.storefront_outlined,
+                    title: "Benim Sayfam",
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.mypage, 
+                        arguments: user);
+                    },
+                  ),
+                  _buildMenuItem(
                     icon: Icons.person_outline,
                     title: "Profili Düzenle",
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.profilesettings);
+                    },
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.verified_user_outlined,
+                    title: "Satıcı Doğrulama",
                     onTap: () {},
                   ),
                   _buildMenuItem(
-                    icon: Icons.favorite_outline,
-                    title: "Favorilerim",
+                    icon: Icons.search,
+                    title: "Kaydettiğim Aramalar",
                     onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.favorites, arguments: user);
+                      
                     },
                   ),
                   _buildMenuItem(
@@ -126,18 +140,6 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     },
                   ),
                   _buildMenuItem(
-                    icon: Icons.sell_outlined,
-                    title: "Benim Ürünlerim",
-                    onTap: () {},
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.chat_outlined,
-                    title: "Mesajlar",
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
-                    },
-                  ),
-                  _buildMenuItem(
                     icon: Icons.settings_outlined,
                     title: "Ayarlar",
                     onTap: () {},
@@ -145,6 +147,11 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                   _buildMenuItem(
                     icon: Icons.help_outline,
                     title: "Yardım & Destek",
+                    onTap: () {},
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.feedback_outlined,
+                    title: "Geri Bildirim Gönder",
                     onTap: () {},
                   ),
                   _buildMenuItem(
@@ -180,6 +187,9 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
   }) {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
+      color: Colors.white,
+      surfaceTintColor: Colors.white,
+      elevation: 1,
       child: ListTile(
         leading: Icon(icon, color: textColor ?? Colors.black),
         title: Text(

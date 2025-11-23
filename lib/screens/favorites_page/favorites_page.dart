@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
-import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
 import '../../models/user_model.dart';
 import '../../widgets/custom_bottom_nav_bar.dart';
+import '../../widgets/product_grid.dart';
 import '../../routes/routes.dart';
 
 class FavoritesPage extends StatefulWidget{
@@ -116,89 +116,9 @@ class _FavoritesPageState extends State<FavoritesPage>
               ),
             ) 
           : 
-          GridView.builder(
-            padding: const EdgeInsets.all(10),
-            itemCount: favorites.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 3/4,
-            ), 
-            itemBuilder: (context, index){
-              final product = favorites[index];
-              return GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => ProductDetailPage(product: product),
-                    ),
-                  );
-                },
-                child: Card(
-                  color: Colors.white,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.network(
-                              product.coverImageUrl,
-                              height: 160,
-                              fit: BoxFit.fill,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  height: 160,
-                                  color: Colors.grey[300],
-                                  child: const Icon(
-                                    Icons.image_not_supported,
-                                    size: 50,
-                                    color: Colors.grey,
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                          Positioned(
-                            top: 5,
-                            right: 5,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: IconButton(
-                                icon: Icon(
-                                  product.isFavorite ? Icons.favorite : Icons.favorite_border,
-                                  color: Colors.black,
-                                ),
-                                onPressed: () {
-                                  context.read<ProductsProvider>().toggleFavorite(product.productId);
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        product.title, 
-                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        '₺${product.price}',
-                        style: const TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
+          ProductGrid(
+            products: favorites,
+            padding: const EdgeInsets.all(12),
           ),
       ),
       bottomNavigationBar: CustomBottomNavBar(

@@ -7,7 +7,10 @@ import '../screens/login_page/login_page.dart';
 import '../screens/chat_menu_page/chat_menu_page.dart';
 import '../screens/cart_page/cart_page.dart';
 import '../screens/profile_menu_page/profile_menu_page.dart';
+import '../screens/profile_settings/profile_settings.dart';
 import '../screens/notifications_page/notifications_page.dart';
+import '../screens/change_password/change_password.dart';
+import '../screens/mypage_page/mypage_page.dart';
 
 class AppRoutes {
   static const String login = '/login';
@@ -17,7 +20,10 @@ class AppRoutes {
   static const String addproduct = '/addproduct';
   static const String cart = '/cart';
   static const String profilemenu = '/profilemenu';
+  static const String mypage = '/mypage';
+  static const String profilesettings = '/profilesettings';
   static const String notifications = '/notifications';
+  static const String changepassword = '/changepassword';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -36,8 +42,14 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CartPage(), settings: settings);
       case profilemenu:
         return MaterialPageRoute(builder: (_) => const ProfileMenuPage(), settings: settings);
+      case mypage:
+        return MaterialPageRoute(builder: (_) => const MypagePage(), settings: settings);
+      case profilesettings:
+        return MaterialPageRoute(builder: (_) => const ProfileSettingsPage(), settings: settings);
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationsPage());
+      case changepassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordPage());
       default:
         return MaterialPageRoute(builder: (_) => const LoginPage());
     }
