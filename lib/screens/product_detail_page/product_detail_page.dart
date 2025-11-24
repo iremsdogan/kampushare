@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/product_model.dart';
 import '../../providers/products_provider.dart';
+import '../../services/cart_service.dart';
+import '../../routes/routes.dart';
 import '../chat_page/chat_page.dart';
 
 class ProductDetailPage extends StatelessWidget {
@@ -134,7 +136,24 @@ class ProductDetailPage extends StatelessWidget {
                                     const EdgeInsets.symmetric(
                                         vertical: 15),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                final cartService = CartService();
+                                cartService.add(product);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: const Text('Ürün sepete eklendi!', style: TextStyle(fontSize: 16),),
+                                    backgroundColor: Colors.green,
+                                    action: SnackBarAction(
+                                      label: 'SEPETE GİT',
+                                      textColor: Colors.white,
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, AppRoutes.cart);
+                                      },
+                                    ),
+                                  ),
+                                );
+                              },
                               child: const Text("Sepete Ekle",
                                   style: TextStyle(
                                       color: Colors.white,

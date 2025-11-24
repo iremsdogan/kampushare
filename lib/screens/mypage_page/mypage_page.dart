@@ -24,7 +24,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
     if (index == 0) {
       Navigator.pushNamed(context, AppRoutes.home, arguments: user);
     } else if (index == 1) {
-      Navigator.pushNamed(context, AppRoutes.favorites, arguments: user);
+      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: user);
     } else if (index == 2) {
       Navigator.pushNamed(context, AppRoutes.addproduct);
     } else if (index == 3) {
@@ -92,13 +92,20 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () => Navigator.pop(context),
               ),
-              const Row(
+              Row(
                 children: [
-                  Icon(Icons.share_outlined),
-                  SizedBox(width:15),
-                  Icon(Icons.settings_outlined),
-                  SizedBox(width:15),
-                  Icon(Icons.notifications_outlined),
+                  const Icon(Icons.share_outlined),
+                  const SizedBox(width:15),
+                  IconButton(
+                    icon: const Icon(Icons.settings_outlined),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.profilesettings);
+                    },
+                  ),
+                  const SizedBox(width:15),
+                  const Icon(Icons.notifications_outlined),
                 ],
               )
             ],
@@ -113,20 +120,6 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                   const CircleAvatar(
                     radius:40,
                     backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=5'),
-                  ),
-                  Positioned(
-                    top: -2,
-                    right: -2,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, AppRoutes.addproduct);
-                      },
-                      child: const CircleAvatar(
-                        radius:13,
-                        backgroundColor: Colors.teal,
-                        child: Icon(Icons.add, size:16, color:Colors.white),
-                      ),
-                    ),
                   ),
                   Positioned(
                     bottom: -12,
@@ -152,7 +145,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.star, color:Colors.amber, size:20),
+                              Icon(Icons.star, color:Colors.amber, size:17),
                               SizedBox(width:5),
                               Text( // şimdilik sabit puan
                                 "4.8",
@@ -164,7 +157,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                               Text(
                                 "  (9)",
                                 style: TextStyle(
-                                  fontSize:13,
+                                  fontSize:15,
                                   color:Colors.black87,
                                   fontWeight: FontWeight.bold
                                 ),
@@ -187,7 +180,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
                     _statItem("15", "Satış", () {print("Satışlara gidildi");}),
                     _statItem("15", "Takipçi", () {Navigator.pushNamed(context, AppRoutes.followers);}),
                     _statItem("2", "Takip", () {Navigator.pushNamed(context, AppRoutes.following);}),
-                    _statItem("4", "Favori", () {print("Kullanıcının favorilerine gidildi");}),
+                    _statItem("4", "Favori", () {Navigator.pushNamed(context, AppRoutes.otherfavorites, arguments: user);}),
                   ],
                 ),
                 ),

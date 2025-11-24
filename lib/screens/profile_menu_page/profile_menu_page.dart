@@ -19,7 +19,7 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
     if (index == 0) {
       Navigator.pushNamed(context, AppRoutes.home, arguments: user);
     } else if (index == 1) {
-      Navigator.pushNamed(context, AppRoutes.favorites, arguments: user);
+      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: user);
     } else if (index == 2) {
       Navigator.pushNamed(context, AppRoutes.addproduct);
     } else if (index == 3) {
@@ -112,24 +112,6 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     },
                   ),
                   _buildMenuItem(
-                    icon: Icons.person_outline,
-                    title: "Profili Düzenle",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context, 
-                        AppRoutes.profilesettings);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.password,
-                    title: "Şifremi Değiştir",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context, 
-                        AppRoutes.profilesettings);
-                    },
-                  ),
-                  _buildMenuItem(
                     icon: Icons.verified_user_outlined,
                     title: "Satıcı Doğrulama",
                     onTap: () {},
@@ -138,20 +120,15 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     icon: Icons.favorite_border,
                     title: "Favorilerim",
                     onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.percent_outlined,
-                    title: "Tekliflerim",
-                    onTap: () {
-                      
+                      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: user);
                     },
                   ),
                   _buildMenuItem(
                     icon: Icons.message_outlined,
                     title: "Mesajlarım",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
+                    },
                   ),
                   _buildMenuItem(
                     icon: Icons.shopping_cart_outlined,
@@ -163,7 +140,11 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                   _buildMenuItem(
                     icon: Icons.settings_outlined,
                     title: "Ayarlar",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context, 
+                        AppRoutes.profilesettings);
+                    },
                   ),
                   _buildMenuItem(
                     icon: Icons.archive_outlined,
@@ -180,13 +161,6 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     },
                   ),
                   _buildMenuItem(
-                    icon: Icons.work_outline_sharp,
-                    title: "Biz Kimiz?",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
                     icon: Icons.edit_notifications_outlined,
                     title: "Bildirim Ayarları",
                     onTap: () {
@@ -194,15 +168,8 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
                     },
                   ),
                   _buildMenuItem(
-                    icon: Icons.beach_access_outlined,
-                    title: "Tatil Modu",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.close_outlined,
-                    title: "Hesabımı Kapat",
+                    icon: Icons.work_outline_sharp,
+                    title: "Biz Kimiz?",
                     onTap: () {
                       
                     },
@@ -262,7 +229,7 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
             fontWeight: FontWeight.w500,
           ),
         ),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.teal),
         onTap: onTap,
       ),
     );
