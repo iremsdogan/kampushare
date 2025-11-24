@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kampushare/models/product_model.dart';
 import 'package:kampushare/providers/products_provider.dart';
+import 'package:kampushare/routes/routes.dart';
 import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
+import 'package:kampushare/services/cart_service.dart';
 import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
@@ -91,9 +93,52 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text("₺${product.price}",
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:Color.fromARGB(255, 174, 2, 2))),
-            const SizedBox(height: 6),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 5,),
+                  Text("₺${product.price}",
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 174, 2, 2))),
+                  GestureDetector(
+                    onTap: () {
+                      final cartService = CartService();
+                      cartService.add(product);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: const Text('Ürün sepete eklendi!'),
+                          backgroundColor: Colors.green,
+                          action: SnackBarAction(
+                            label: 'SEPETE GİT',
+                            textColor: Colors.white,
+                            onPressed: () {
+                              Navigator.pushNamed(context, AppRoutes.cart);
+                            },
+                          )));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Colors.teal),
+                      ),
+                      child: const Text('Sepete Ekle',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 4),
           ],
         ),
       ),

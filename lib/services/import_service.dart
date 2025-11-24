@@ -20,7 +20,7 @@ class ImportService {
     }
 
     for (var entry in products.entries) {
-      final productId = entry.key; // "prod_001"
+      final productId = entry.key; 
       final productData = entry.value;
       await _firestore.collection('products').doc(productId).set(productData);
     }

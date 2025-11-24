@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
 import '../../models/user_model.dart';
-import '../../widgets/custom_bottom_nav_bar.dart';
 import '../../widgets/product_grid.dart';
 import '../../routes/routes.dart';
+import '../../widgets/product_filter_bar.dart';
 
-class FavoritesPage extends StatefulWidget{
-
-  const FavoritesPage({super.key});
+class OtherFavoritesPage extends StatefulWidget{
+  const OtherFavoritesPage ({super.key});
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<OtherFavoritesPage> createState() => _OtherFavoritesPageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage>
-{
+class _OtherFavoritesPageState extends State<OtherFavoritesPage>{
+
   int _selectedItem = 1;
+  bool hideSold = false;
 
   void _onItemTapped(int index){
     setState(() {
@@ -45,42 +45,28 @@ class _FavoritesPageState extends State<FavoritesPage>
     final favorites = context.watch<ProductsProvider>().products.where((p)=>p.isFavorite).toList();
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.teal,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(25),
-              bottomRight: Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.5,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back, 
+            color: Colors.black
           ),
-          child: const SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: Center(
-                child: 
-                  Text(
-                    "Favorilerim",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                    ),
-                  ),
-              ),
-            ),
+          onPressed: () {
+            Navigator.pop(context);
+          }, 
+        ),
+        centerTitle: true,
+        title:const Text(
+          'Favoriler', 
+          style: TextStyle(
+            color: Colors.black, 
+            fontWeight: FontWeight.bold
           ),
         ),
       ),
-
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFFF1F3F8) 
@@ -97,7 +83,7 @@ class _FavoritesPageState extends State<FavoritesPage>
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Henüz favori ürün eklemediniz', 
+                    'Kullanıcın favori listesi boş', 
                     style: TextStyle(
                       fontSize: 24, 
                       fontWeight: FontWeight.bold,
@@ -106,7 +92,7 @@ class _FavoritesPageState extends State<FavoritesPage>
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Beğendiğiniz ürünleri favorilerinize ekleyin', 
+                    'Beğendiğiniz ürünler için gezintiye devam edin', 
                     style: TextStyle(
                       fontSize: 16, 
                       color: Colors.grey
@@ -116,14 +102,31 @@ class _FavoritesPageState extends State<FavoritesPage>
               ),
             ) 
           : 
-          ProductGrid(
-            products: favorites,
-            padding: const EdgeInsets.all(12),
+          Column(
+            children: [
+              const SizedBox(height: 10),
+                ProductFilterBar(
+                  hideSold: hideSold,
+                  onSort: () {
+                    print("Sırala tıklandı");
+                  },
+                  onFilter: () {
+                    print("Filtrele tıklandı");
+                  },
+                  onToggleHideSold: () {
+                    setState(() {
+                      hideSold = !hideSold;
+                    });
+                  },
+                ),
+              Expanded(
+                child: ProductGrid(
+                  products: favorites,
+                  padding: const EdgeInsets.all(12),
+                ),
+              ),
+            ],
           ),
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _selectedItem, 
-        onTap: _onItemTapped,
       ),
     );
   }

@@ -23,7 +23,7 @@ class _ChatMenuPageState extends State<ChatMenuPage>{
       Navigator.pushNamed(context, AppRoutes.home, arguments: user);
     }
     else if(index == 1){
-      Navigator.pushNamed(context, AppRoutes.favorites, arguments: user);
+      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: user);
     }
     else if(index == 2){
       Navigator.pushNamed(context, AppRoutes.addproduct);

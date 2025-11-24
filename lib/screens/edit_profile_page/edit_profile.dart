@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kampushare/routes/routes.dart';
 import '../../models/user_model.dart';
 
-class ProfileSettingsPage extends StatefulWidget{
-  const ProfileSettingsPage ({super.key});
+class EditProfilePage extends StatefulWidget{
+  const EditProfilePage ({super.key});
 
   @override
-  State<ProfileSettingsPage> createState() => _ProfileMenuPageState();
+  State<EditProfilePage> createState() => _EditProfilePageState();
 }
 
-class _ProfileMenuPageState extends State<ProfileSettingsPage>{
+class _EditProfilePageState extends State<EditProfilePage>{
 
   bool callNotifications = false;
   bool twoFactorAuth = false;

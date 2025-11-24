@@ -4,7 +4,6 @@ import 'package:kampushare/widgets/custom_bottom_nav_bar.dart';
 import 'package:kampushare/widgets/product_grid.dart';
 import 'package:provider/provider.dart';
 import '../../providers/products_provider.dart';
-import 'package:kampushare/screens/product_detail_page/product_detail_page.dart';
 import '../../models/user_model.dart';
 import '../../models/product_model.dart';
 import '../../routes/routes.dart';
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage>{
 
   void _onItemTapped(int item){
     if(item == 1) {
-      Navigator.pushNamed(context, AppRoutes.favorites, arguments: widget.user);
+      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: widget.user);
     }
     else if(item == 2){
       Navigator.pushNamed(context, AppRoutes.addproduct);
