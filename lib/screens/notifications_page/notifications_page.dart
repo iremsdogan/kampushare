@@ -50,7 +50,7 @@ class _NotificationsPageState extends State<NotificationsPage>{
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bildirimler', style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 1,
         actions: [
@@ -71,7 +71,7 @@ class _NotificationsPageState extends State<NotificationsPage>{
                 )
                 : Container(
                   decoration: const BoxDecoration(
-                    color: Color(0xFFF1F3F8),
+                    color: Color(0xFFF5F5F5),
                   ),
                   child: ListView.builder(
                     itemCount: notifications.length,
@@ -87,7 +87,7 @@ class _NotificationsPageState extends State<NotificationsPage>{
 
   Widget _buildNotificationCard(Map<String, String> item) {
     return Card(
-      color: Colors.white,
+      color: Color(0xFFFFFFFF),
       elevation: 2,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

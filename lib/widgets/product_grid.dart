@@ -16,7 +16,7 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gridDelegate = const SliverGridDelegateWithFixedCrossAxisCount(
+    final gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 2,
       crossAxisSpacing: 12,
       mainAxisSpacing: 12,

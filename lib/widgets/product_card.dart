@@ -24,7 +24,7 @@ class ProductCard extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -61,7 +61,7 @@ class ProductCard extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.3),
+                          color: const Color(0xFFFFFFFF).withOpacity(0.4),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -99,12 +99,13 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 5,),
+                  const SizedBox(height: 15),
                   Text("₺${product.price}",
                       style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 174, 2, 2))),
+                  const SizedBox(width: 6,),
                   GestureDetector(
                     onTap: () {
                       final cartService = CartService();
@@ -114,7 +115,7 @@ class ProductCard extends StatelessWidget {
                           backgroundColor: Colors.green,
                           action: SnackBarAction(
                             label: 'SEPETE GİT',
-                            textColor: Colors.white,
+                            textColor: Color(0xFFFFFFFF),
                             onPressed: () {
                               Navigator.pushNamed(context, AppRoutes.cart);
                             },
@@ -124,7 +125,7 @@ class ProductCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 3),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0xFFFFFFFF),
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(color: Colors.teal),
                       ),
@@ -135,6 +136,7 @@ class ProductCard extends StatelessWidget {
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
+                  const SizedBox(height: 10,),
                 ],
               ),
             ),

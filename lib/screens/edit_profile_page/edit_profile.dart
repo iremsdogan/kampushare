@@ -22,10 +22,10 @@ class _EditProfilePageState extends State<EditProfilePage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color(0xFFF1F3F8),
+      backgroundColor: Color(0xFFF5F5F5),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         automaticallyImplyLeading: false,
         title: const Text(
           "Profil Ayarları",
@@ -63,7 +63,7 @@ class _EditProfilePageState extends State<EditProfilePage>{
                         color: Colors.teal,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.camera_alt, color: Colors.white, size: 20),
+                      child: const Icon(Icons.camera_alt, color: Color(0xFFFFFFFF), size: 20),
                     ),
                   ),
                 ],
@@ -132,7 +132,7 @@ class _EditProfilePageState extends State<EditProfilePage>{
                 ),
                 child: const Text(
                   "Kaydet",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: 18, color: Color(0xFFFFFFFF)),
                 ),
               ),
             ),
@@ -146,7 +146,7 @@ class _EditProfilePageState extends State<EditProfilePage>{
   Widget _buildInput(TextEditingController controller, String hint){
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(25),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -184,8 +184,8 @@ class _EditProfilePageState extends State<EditProfilePage>{
   }) {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
+      color: Color(0xFFFFFFFF),
+      surfaceTintColor: Color(0xFFFFFFFF),
       elevation: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),

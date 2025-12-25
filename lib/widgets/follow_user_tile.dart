@@ -78,7 +78,7 @@ class _FollowUserTilePageState extends State<FollowUserTile>{
               ),
               child: Icon(
                 widget.isFollowing ? Icons.check: Icons.person_add_alt_1,
-                color: widget.isFollowing ? Colors.white : Colors.black54,
+                color: widget.isFollowing ? Color(0xFFFFFFFF) : Colors.black54,
                 size: 20,
               ),
             ),

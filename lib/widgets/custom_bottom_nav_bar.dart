@@ -33,7 +33,7 @@ class CustomBottomNavBar extends StatelessWidget {
           topRight: Radius.circular(25),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFFFFFFF),
           currentIndex: currentIndex,
           onTap: onTap,
           type: BottomNavigationBarType.fixed,

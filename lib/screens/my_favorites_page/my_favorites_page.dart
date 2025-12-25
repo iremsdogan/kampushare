@@ -46,45 +46,25 @@ class _MyFavoritesPageState extends State<MyFavoritesPage>
     final favorites = context.watch<ProductsProvider>().products.where((p)=>p.isFavorite).toList();
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.teal,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(25),
-              bottomRight: Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: const SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: Center(
-                child: 
-                  Text(
-                    "Favorilerim",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                    ),
-                  ),
-              ),
-            ),
+      backgroundColor: const Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: const  Color(0xFFFFFFFF),
+        elevation: 0.4,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+        centerTitle: true,
+        title: const Text(
+          "Favorilerim",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
-
       body: Column(
         children: [
-          const SizedBox(height: 10),
           ProductFilterBar(
             hideSold: hideSold,
             onSort: () {
@@ -103,7 +83,7 @@ class _MyFavoritesPageState extends State<MyFavoritesPage>
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color(0xFFF1F3F8) 
+                color: Color(0xFFF5F5F5) 
               ),
               child: favorites.isEmpty ? 
                   const Center(

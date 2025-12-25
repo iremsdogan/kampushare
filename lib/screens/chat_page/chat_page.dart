@@ -8,7 +8,7 @@ class ChatPage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.grey[100], 
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         elevation: 1,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black87),
@@ -59,7 +59,7 @@ class ChatPage extends StatelessWidget{
         padding: const EdgeInsets.all(12),
         constraints: const BoxConstraints(maxWidth: 250),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4)
@@ -80,7 +80,7 @@ class ChatPage extends StatelessWidget{
           ),
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Text(text, style: const TextStyle(color: Colors.white),),
+        child: Text(text, style: const TextStyle(color: Color(0xFFFFFFFF)),),
       ),
     );
   }
@@ -88,7 +88,7 @@ class ChatPage extends StatelessWidget{
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFFFFFFF),
         boxShadow: [
           BoxShadow(color: Colors.black87.withOpacity(0.05), blurRadius: 6),
         ],
@@ -114,7 +114,7 @@ class ChatPage extends StatelessWidget{
           const CircleAvatar(
             radius: 24,
             backgroundColor: const Color(0xFF4facfe),
-            child: Icon(Icons.send, color: Colors.white,
+            child: Icon(Icons.send, color: Color(0xFFFFFFFF),
             ),
           ),
         ],

@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage>{
         body: _isLoading ? const Center(child: CircularProgressIndicator(),) : 
         Container(
           decoration: const BoxDecoration(
-              color: Color(0xFFF1F3F8),
+              color: Color(0xFFF5F5F5),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage>{
         margin: const EdgeInsets.fromLTRB(10,50,10,10),
         padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         decoration: BoxDecoration(
-          color:Colors.white,
+          color:Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(

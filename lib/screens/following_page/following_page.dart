@@ -13,9 +13,9 @@ class _FollowingPageState extends State<FollowingPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         elevation: 0.5,
         leading: IconButton(
           icon: const Icon(

@@ -169,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                               padding: const EdgeInsets.all(20),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(0.8),
+                                  color: Color(0xFFFFFFFF),
                                   boxShadow: const [
                                     BoxShadow(
                                       color: Colors.black26,
@@ -245,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 14),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.white : Colors.transparent,
+          color: isSelected ? Color(0xFFFFFFFF) : Colors.transparent,
           borderRadius: BorderRadius.circular(30),
           boxShadow: isSelected ? [const BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0,2),
           ),
@@ -253,7 +253,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: Text(
           text, style: TextStyle(
-            color: isSelected ? Colors.black : Colors.white,
+            color: isSelected ? Colors.black : Color(0xFFFFFFFF),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -272,7 +272,7 @@ class _LoginPageState extends State<LoginPage> {
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.fromLTRB(30, 30, 30, 60),
             decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xFFFFFFFF),
             borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
@@ -313,7 +313,7 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {},
           child: const Text(
             'Parolamı Unuttum',
-            style: TextStyle(decoration: TextDecoration.underline, decorationColor: Colors.white, color: Colors.white, fontSize: 16),
+            style: TextStyle(decoration: TextDecoration.underline, decorationColor: Color(0xFFFFFFFF), color: Color(0xFFFFFFFF), fontSize: 16),
           ),
         ),
       ),
@@ -330,7 +330,7 @@ class _LoginPageState extends State<LoginPage> {
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.fromLTRB(30, 30, 30, 60),
               decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color(0xFFFFFFFF),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
@@ -385,7 +385,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextField(
@@ -417,7 +417,7 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 10,
       ),
       onPressed: onPressed, 
-      child: Text(text, style: const TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.bold)),
+      child: Text(text, style: const TextStyle(color: Color(0xFFFFFFFF),fontSize: 20, fontWeight: FontWeight.bold)),
     );
   }
 }

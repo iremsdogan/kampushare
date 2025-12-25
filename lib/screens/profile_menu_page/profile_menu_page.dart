@@ -26,9 +26,7 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
       Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
     }
 
-    setState(() {
-      _selectedItem = index;
-    });
+    setState(() => _selectedItem = index);
   }
 
   @override
@@ -36,201 +34,232 @@ class _ProfileMenuPageState extends State<ProfileMenuPage> {
     final user = ModalRoute.of(context)!.settings.arguments as UserModel;
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.teal,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(25),
-              bottomRight: Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: const SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: Center(
-                child:
-                  Text(
-                    "Profilim",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                    ),
-                  ),
-              ),
-            ),
+      backgroundColor: const Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFFFFFF),
+        elevation: 0.4,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+        centerTitle: true,
+        title: const Text(
+          "Profilim",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_outlined, color: Colors.teal),
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.profilesettings);
+            },
+          ),
+        ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xFFF1F3F8),
-        ),
+      body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(user.profileImage),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    "@${user.username}",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ],
+            _profileCard(user),
+            _sectionTitle("Hesabım"),
+            _menuItem(
+              icon: Icons.storefront_outlined,
+              title: "Benim Sayfam",
+              onTap: () => Navigator.pushNamed(
+                context,
+                AppRoutes.mypage,
+                arguments: user,
               ),
             ),
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                children: [
-                  _buildMenuItem(
-                    icon: Icons.storefront_outlined,
-                    title: "Benim Sayfam",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context, 
-                        AppRoutes.mypage, 
-                        arguments: user);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.verified_user_outlined,
-                    title: "Satıcı Doğrulama",
-                    onTap: () {},
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.favorite_border,
-                    title: "Favorilerim",
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.myfavorites, arguments: user);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.message_outlined,
-                    title: "Mesajlarım",
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.chatmenu, arguments: user);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.shopping_cart_outlined,
-                    title: "Sepetim",
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.cart, arguments: user);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.settings_outlined,
-                    title: "Ayarlar",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context, 
-                        AppRoutes.profilesettings);
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.archive_outlined,
-                    title: "Kaydettiğim Aramalar",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.search,
-                    title: "Son Gezdiklerim",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.edit_notifications_outlined,
-                    title: "Bildirim Ayarları",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.work_outline_sharp,
-                    title: "Biz Kimiz?",
-                    onTap: () {
-                      
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.help_outline,
-                    title: "Yardım & Destek",
-                    onTap: () {},
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.feedback_outlined,
-                    title: "Geri Bildirim Gönder",
-                    onTap: () {},
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.logout,
-                    title: "Çıkış Yap",
-                    onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context, 
-                        AppRoutes.login,
-                        (route) => false,
-                      );
-                    },
-                    textColor: Colors.redAccent,
-                  ),
-                ],
+            _menuItem(
+              icon: Icons.favorite_border,
+              title: "Favorilerim",
+              onTap: () => Navigator.pushNamed(
+                context,
+                AppRoutes.myfavorites,
+                arguments: user,
               ),
             ),
+            _menuItem(
+              icon: Icons.shopping_cart_outlined,
+              title: "Sepetim",
+              onTap: () => Navigator.pushNamed(
+                context,
+                AppRoutes.cart,
+                arguments: user,
+              ),
+            ),
+            _menuItem(
+              icon: Icons.message_outlined,
+              title: "Mesajlarım",
+              onTap: () => Navigator.pushNamed(
+                context,
+                AppRoutes.chatmenu,
+                arguments: user,
+              ),
+            ),
+            _sectionTitle("Ayarlar"),
+            _menuItem(
+              icon: Icons.verified_user_outlined,
+              title: "Satıcı Doğrulama",
+              onTap: () {},
+            ),
+            _menuItem(
+              icon: Icons.notifications_outlined,
+              title: "Bildirim Ayarları",
+              onTap: () {},
+            ),
+            _menuItem(
+              icon: Icons.settings_outlined,
+              title: "Hesap Ayarları",
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.profilesettings);
+              },
+            ),
+            _sectionTitle("Diğer"),
+            _menuItem(
+              icon: Icons.help_outline,
+              title: "Yardım & Destek",
+              onTap: () {},
+            ),
+            _menuItem(
+              icon: Icons.feedback_outlined,
+              title: "Geri Bildirim Gönder",
+              onTap: () {},
+            ),
+            _menuItem(
+              icon: Icons.work_outline,
+              title: "Biz Kimiz?",
+              onTap: () {},
+            ),
+            const SizedBox(height: 24),
+            _menuItem(
+              icon: Icons.logout,
+              title: "Çıkış Yap",
+              color: Colors.redAccent,
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.login,
+                  (route) => false,
+                );
+              },
+            ),
+            const SizedBox(height: 32),
           ],
         ),
       ),
+
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _selectedItem,
         onTap: _onItemTapped,
       ),
     );
   }
+  Widget _profileCard(UserModel user) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
+      decoration: const BoxDecoration(
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(26),
+          bottomRight: Radius.circular(26),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromRGBO(0, 0, 0, 0.05),
+            blurRadius: 12,
+            offset: Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 44,
+            backgroundImage: NetworkImage(user.profileImage),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            "@${user.username}",
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            user.email,
+            style: const TextStyle(
+              color: Colors.black45,
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  Widget _sectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 34, 8, 12),
+      child: Text(
+        title.toUpperCase(),
+        style: const TextStyle(
+          fontSize: 12,
+          color: Colors.black45,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.9,
+        ),
+      ),
+    );
+  }
 
-  Widget _buildMenuItem({
+  Widget _menuItem({
     required IconData icon,
     required String title,
     required VoidCallback onTap,
-    Color? textColor,
+    Color color = Colors.teal,
   }) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8),
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
-      elevation: 1,
-      child: ListTile(
-        leading: Icon(icon, color: textColor ?? Colors.black),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: textColor ?? Colors.black,
-            fontWeight: FontWeight.w500,
-          ),
+    return InkWell(
+      borderRadius: BorderRadius.circular(14),
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+        decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.teal),
-        onTap: onTap,
+        child: Row(
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: color == Colors.redAccent
+                      ? Colors.redAccent
+                      : Colors.black87,
+                ),
+              ),
+            ),
+            const Icon(Icons.chevron_right, color: Colors.black38),
+          ],
+        ),
       ),
     );
   }
