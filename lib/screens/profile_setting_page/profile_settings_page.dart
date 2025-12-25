@@ -12,9 +12,9 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1F3F8),
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         elevation: 0.5,
         leading: IconButton(
           icon: const Icon(
@@ -96,8 +96,8 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
   }) {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
+      color: Color(0xFFFFFFFF),
+      surfaceTintColor: Color(0xFFFFFFFF),
       elevation: 1,
       child: ListTile(
         leading: Icon(icon, color: textColor ?? Colors.black),

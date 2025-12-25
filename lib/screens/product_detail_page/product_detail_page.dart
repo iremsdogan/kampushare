@@ -68,7 +68,7 @@ class ProductDetailPage extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
@@ -127,10 +127,13 @@ class ProductDetailPage extends StatelessWidget {
                           Expanded(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
+                                backgroundColor: Color(0xFFFFFFFF),
                                 shape: RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.circular(12),
+                                  side: const BorderSide(
+                                      color: Colors.teal,
+                                      width: 1.5),
                                 ),
                                 padding:
                                     const EdgeInsets.symmetric(
@@ -145,7 +148,7 @@ class ProductDetailPage extends StatelessWidget {
                                     backgroundColor: Colors.green,
                                     action: SnackBarAction(
                                       label: 'SEPETE GİT',
-                                      textColor: Colors.white,
+                                      textColor: Color(0xFFFFFFFF),
                                       onPressed: () {
                                         Navigator.pushNamed(
                                             context, AppRoutes.cart);
@@ -156,7 +159,7 @@ class ProductDetailPage extends StatelessWidget {
                               },
                               child: const Text("Sepete Ekle",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.teal,
                                       fontSize: 16)),
                             ),
                           ),
@@ -185,7 +188,7 @@ class ProductDetailPage extends StatelessWidget {
                               },
                               child: const Text("Satıcıyla Görüş",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Color(0xFFFFFFFF),
                                       fontSize: 16)),
                             ),
                           ),
@@ -210,7 +213,7 @@ class ProductDetailPage extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white,
+          color: Color(0xFFFFFFFF),
         ),
         child: Icon(icon, color: Colors.black),
       ),
@@ -222,7 +225,7 @@ class ProductDetailPage extends StatelessWidget {
       padding:
           const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(0xFFF1F3F8),
+        color: const Color(0xFFF5F5F5),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -241,7 +244,7 @@ class ProductDetailPage extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 4),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1F3F8),
+          color: const Color(0xFFF5F5F5),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(

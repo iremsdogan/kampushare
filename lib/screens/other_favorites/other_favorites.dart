@@ -45,9 +45,9 @@ class _OtherFavoritesPageState extends State<OtherFavoritesPage>{
     final favorites = context.watch<ProductsProvider>().products.where((p)=>p.isFavorite).toList();
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         elevation: 0.5,
         leading: IconButton(
           icon: const Icon(
@@ -69,7 +69,7 @@ class _OtherFavoritesPageState extends State<OtherFavoritesPage>{
       ),
       body: Container(
         decoration: const BoxDecoration(
-          color: Color(0xFFF1F3F8) 
+          color: Color(0xFFF5F5F5) 
         ),
         child: favorites.isEmpty ? 
             const Center(

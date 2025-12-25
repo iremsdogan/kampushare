@@ -28,9 +28,9 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F3F8),
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFFFFFFF),
         elevation: 0.4,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
@@ -142,7 +142,7 @@ class _CartPageState extends State<CartPage> {
             child: const Text(
               "10",
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFFFFFFFF),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -172,7 +172,7 @@ class _CartPageState extends State<CartPage> {
           SlidableAction(
             onPressed: (context) => _deleteItem(),
             backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
+            foregroundColor: Color(0xFFFFFFFF),
             icon: Icons.delete,
             label: 'Sil',
           ),
@@ -317,7 +317,7 @@ class _CartPageState extends State<CartPage> {
                     ),
                     child: const Text(
                       "+ Ekle",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Color(0xFFFFFFFF)),
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -342,7 +342,7 @@ class _CartPageState extends State<CartPage> {
       height: 100,
       padding: const EdgeInsets.only(left: 16, right: 16),
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFFFFFFF),
         border: Border(top: BorderSide(color: Colors.black12)),
       ),
       child: Row(
@@ -380,12 +380,12 @@ class _CartPageState extends State<CartPage> {
                 children: [
                   const Text(
                     "Satıcıyla İletişime Geç ",
-                    style: TextStyle(fontSize: 17, color:Colors.white),
+                    style: TextStyle(fontSize: 17, color:Color(0xFFFFFFFF)),
                   ),
                   Icon( 
                     Icons.arrow_forward, 
                     size: 20, 
-                    color: Colors.white.withOpacity(1),
+                    color: Color(0xFFFFFFFF).withOpacity(1),
                   ),
                 ],
               ),

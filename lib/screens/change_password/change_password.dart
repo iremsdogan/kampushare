@@ -19,10 +19,10 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F3F8),
+      backgroundColor: const Color(0xFFF5F5F5),
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         automaticallyImplyLeading: false,
         title: const Text(
           "Şifre Değiştirme",
@@ -78,7 +78,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   ),
                   child: const Text(
                     "Şifremi Değiştir",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Color(0xFFFFFFFF)),
                   ),
                 ),
               ),
@@ -98,7 +98,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(25),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 20),

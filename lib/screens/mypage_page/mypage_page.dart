@@ -52,11 +52,10 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
     final allProducts = context.watch<ProductsProvider>().products;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F3F8),
+      backgroundColor: const Color(0xFFF5F5F5),
       body: CustomScrollView(
         slivers:[
           SliverToBoxAdapter(child: _buildHeader()),
-          const SliverToBoxAdapter(child: SizedBox(height:20)),
           SliverToBoxAdapter(child: _buildTabs()),
           const SliverToBoxAdapter(child: SizedBox(height:15)),
           SliverToBoxAdapter(child: _buildFilterRow()),
@@ -81,7 +80,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
     final user = ModalRoute.of(context)!.settings.arguments as UserModel;
     return Container(
       padding: const EdgeInsets.fromLTRB(16,40,16,10),
-      color:Colors.white,
+      color:const Color(0xFFFFFFFF),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -260,9 +259,9 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
     );
   }
   Widget _buildTabs() {
-    return Column(
-      children: [
-        TabBar(
+    return Container(
+      color: const Color(0xFFFFFFFF),
+      child: TabBar(
           controller: _tabController,
           indicatorColor: Colors.teal,
           labelColor: Colors.teal,
@@ -272,7 +271,6 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
             Tab(text: "Ürünlerim"),
           ],
         ),
-      ],
     );
   }
   Widget _buildFilterRow() {
@@ -309,7 +307,7 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
       ),
       child: Row(
         children: [
-          const Icon(Icons.add_circle, color: Colors.white, size: 40),
+          const Icon(Icons.add_circle, color: Color(0xFFFFFFFF), size: 40),
           const SizedBox(width: 10),
           InkWell(
             onTap: () {
@@ -318,13 +316,13 @@ class _MypagePageState extends State<MypagePage> with SingleTickerProviderStateM
             child: const Expanded(
               child: Text(
                 "Sonbahar ürünlerini hemen yükle!",
-                style: TextStyle(color: Colors.white, fontSize: 14),
+                style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 14),
                 
               ),
             ),
           ),
           const SizedBox(width: 60),
-          const Icon(Icons.arrow_forward_ios, color: Colors.white),
+          const Icon(Icons.arrow_forward_ios, color: Color(0xFFFFFFFF)),
         ],
       ),
     );

@@ -121,46 +121,20 @@ class _AddProductPageState extends State<AddProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F3F8),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.teal,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(25),
-              bottomRight: Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              child: Row(
-                children: [ 
-                  IconButton(
-                    onPressed: () => Navigator.pop(context), 
-                    icon: const Icon(Icons.arrow_back, color: Colors.black,),
-                  ),
-                  const Spacer(),
-                  const Text(
-                        "Ürün Bilgileri",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                        ),
-                      ),
-                      const Spacer(flex: 2),
-                  ],
-              ),
-            ),
+      backgroundColor: const Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: const  Color(0xFFFFFFFF),
+        elevation: 0.4,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+        centerTitle: true,
+        title: const Text(
+          "Ürün Bilgileri",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
@@ -172,7 +146,7 @@ class _AddProductPageState extends State<AddProductPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
-              color: Colors.white,
+              color: const Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 1,
               child: Padding(
@@ -252,7 +226,7 @@ class _AddProductPageState extends State<AddProductPage> {
 
             const SizedBox(height: 10),
             Card(
-              color: Colors.white,
+              color: const Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 1,
               child: Padding(
@@ -289,7 +263,7 @@ class _AddProductPageState extends State<AddProductPage> {
 
             const SizedBox(height: 10),
             Card(
-              color: Colors.white,
+              color: const Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 1,
               child: Padding(
@@ -319,7 +293,7 @@ class _AddProductPageState extends State<AddProductPage> {
 
             const SizedBox(height: 10),
             Card(
-              color: Colors.white,
+              color: Color(0xFFFFFFFF),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 1,
               child: Padding(
@@ -377,7 +351,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 ),
                 child: const Text(
                   "Onaya Gönder",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
                 ),
               ),
             ),
